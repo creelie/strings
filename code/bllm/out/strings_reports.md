@@ -149,3 +149,44 @@ Lean's type theory with propext, Classical.choice, Quot.sound
 - [ ] every unresolved star converted into a named residue
 - [ ] the label is one of THEOREM, COUNTEREXAMPLE, CONDITIONAL, INDEPENDENCE, CANDIDATE, BUJ, OPEN
 
+# Run report: Weighted Fermat pencils
+
+## 1. Axiom base
+
+Lean's type theory with propext, Classical.choice, Quot.sound
+
+## 2. Definition ledger (obligations)
+
+- `weighted` (theorem, weight 1.0): UNK, certified through its bridges
+- `distinct-characters` (computation, weight 1.0): FAIL
+- `wrap-classes` (computation, weight 1.0): PASS, verified by checks/weighted.py
+- `jacobian-rings` (computation, weight 1.0): PASS, verified by checks/weighted.m2
+- `mass-blocks` (computation, weight 1.0): PASS, verified by checks/weighted.py, lean/Strings.lean
+- `three-families` (computation, weight 1.0): PASS, verified by checks/weighted.py, lean/Strings.lean
+
+## 3. Dependency graph
+
+- wrap-classes, jacobian-rings, mass-blocks, three-families ⇒ weighted
+
+## 5. Residue ledger
+
+- none
+
+## 8. Playbook
+
+- core failures: 2, bullets: 2, density 1, rejected updates: 0
+- [FAIL/FAIL] computation: distinct-characters failed its verifier
+- [UNK/UNK] strategy: find the labels that share a character by their shift and evaluate the mass map block by block on the characters and their inverses
+
+## 14. Release label
+
+**CANDIDATE**; factors {'proof': 1, 'formal': 1, 'code': 1, 'trace': 1, 'sim': 1, 'risk': 1, 'lit': 1, 'human': 0}; blocking: human
+
+## 15. Human / referee checklist
+
+- [ ] every definition typed, with its axiom scope
+- [ ] proof, refutation and independence branches all considered
+- [ ] every bridge has zero or named scope loss
+- [ ] every unresolved star converted into a named residue
+- [ ] the label is one of THEOREM, COUNTEREXAMPLE, CONDITIONAL, INDEPENDENCE, CANDIDATE, BUJ, OPEN
+

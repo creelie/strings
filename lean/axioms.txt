@@ -9,3 +9,6 @@
 'Strings.mass_map' does not depend on any axioms
 'Strings.moved_point_rule' depends on axioms: [propext]
 'Strings.hessian_socle' depends on axioms: [propext]
+'Strings.weighted_labels' does not depend on any axioms
+'Strings.weighted_euler' depends on axioms: [propext]
+'Strings.no_three_families' does not depend on any axioms

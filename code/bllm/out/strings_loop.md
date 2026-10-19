@@ -45,3 +45,18 @@ Final label: **CANDIDATE**; blocking factors: human.
 
 Final label: **OPEN**; blocking factors: proof, human.
 
+## weighted pencils
+
+| Round | Strategy | Failed checks | Change made | Label after round |
+|---|---|---|---|---|
+| 1 | carry the proof of Theorem A over to the weighted pencils | distinct-characters | find the labels that share a character by their shift and evaluate the mass map block by block on the characters and their inverses | OPEN |
+| 2 | labels by shift and the mass map by blocks | none | - | CANDIDATE |
+
+- round 1, `distinct-characters`: FAIL. the 103 labels of the sextic carry 96 characters; 7 characters are shared, e.g. x1^4 x5 and x2^2 x3^2 x4^2 at shift 2
+- round 2, `wrap-classes`: pass. labels sharing a character found by their shift and matched with the hand lists (7, 27, 42 classes; 96, 122, 100 characters); socle functional by sectors on all monomials of degree 3d (39 checks passed, 0 failed)
+- round 2, `jacobian-rings`: pass. weighted Jacobian rings at psi = 1/3 and psi = -2: dimensions, labels a basis, socle functional by sectors (18 checks passed, 0 failed)
+- round 2, `mass-blocks`: pass. mass map of the invariant label block by block: ranks [99, 125, 109] for the sextic, octic and dectic, so 4, 24 and 36 generations stay massless at every smooth member with psi != 0
+- round 2, `three-families`: pass. three families on X/H needs |H| = 34 (sextic) or 48 (dectic), and then chi(O(D)) = D^3/6 + c2.D/12 is 1163/2, 593/12 or 2321/6; for the octic 296/6 is not an integer
+
+Final label: **CANDIDATE**; blocking factors: human.
+

@@ -4,8 +4,11 @@
 #                                  allowed by the group, the mass map (Theorems A, B)
 #   C++        checks/hessian.cpp  the Hessian by its 120 permutations, Table I
 #   Python     checks/verify.py    socle, Hessian, Seifert form, Fermat norms
+#   Python     checks/weighted.py  the weighted Fermat pencils: labels, characters,
+#                                  mass map, three families on free quotients
 #   Julia      checks/fermat.jl    the Fermat norms from a Lanczos Gamma, Table II
 #   Macaulay2  checks/socle.m2     the Jacobian ring and its socle
+#   Macaulay2  checks/weighted.m2  the Jacobian rings of the weighted pencils
 #   Lean 4     ../lean/Strings.lean the finite counts and the moved-point rule
 # Tools are taken from PATH, or from CC, CXX, PYTHON, JULIA, M2, LEAN.
 # A tool that is missing is reported and its checks are skipped.
@@ -34,12 +37,14 @@ if have "$CXX"; then
 else skipped+=("C++"); fi
 if have "$PYTHON"; then
   run "Python: socle, Hessian, Seifert form, Fermat norms" "$PYTHON" checks/verify.py || status=1
+  run "Python: weighted Fermat pencils" "$PYTHON" checks/weighted.py || status=1
 else skipped+=("Python"); fi
 if have "$JULIA"; then
   run "Julia: Fermat norms" "$JULIA" --startup-file=no checks/fermat.jl || status=1
 else skipped+=("Julia"); fi
 if have "$M2"; then
   run "Macaulay2: Jacobian ring" "$M2" --script checks/socle.m2 || status=1
+  run "Macaulay2: weighted Jacobian rings" "$M2" --script checks/weighted.m2 || status=1
 else skipped+=("Macaulay2"); fi
 if have "$LEAN"; then
   echo "== Lean 4: ../lean/Strings.lean" | tee -a "$LOG"

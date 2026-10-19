@@ -43,7 +43,7 @@
 \newcommand{\cM}{\mathcal{M}}
 \newcommand{\cS}{\mathcal{S}}
 \newcommand{\cV}{\mathcal{V}}
-\newcommand{\ZDOI}{10.5281/zenodo.23480492}
+\newcommand{\ZDOI}{10.5281/zenodo.23480310}
 \newcommand{\repolink}{\ifx\ZDOI\empty\url{https://github.com/creelie/strings}\else\href{https://doi.org/\ZDOI}{doi:\ZDOI}\fi}
 \newcommand{\cO}{\mathcal{O}}
 \newcommand{\Hom}{\operatorname{Hom}}
@@ -89,10 +89,13 @@ that this symmetry allows is a power of the modulus, and every other
 coupling vanishes. The invariant deformation pairs each family with exactly
 one partner, so that fifty families are massless at the Fermat point and
 none anywhere else, and at the Fermat point the masses are given in closed
-form by the Gamma function. We also prove that the Geometric Selection
-Conjecture is equivalent to the existence of one viable vacuum fixed by
-mirror symmetry, and that with the standard embedding no quintic
-threefold, and no free quotient of one, carries three families.
+form by the Gamma function. On the three other one-parameter families of
+the same type, in weighted projective spaces, the symmetry no longer tells
+the families apart and some families stay massless at every member. We
+also prove that the Geometric Selection Conjecture is equivalent to the
+existence of one viable vacuum fixed by mirror symmetry, and that with the
+standard embedding no quintic threefold, no member of the three other
+families, and no free quotient of any of them, carries three families.
 \par\medskip\upshape\noindent
 \textit{2020 Mathematics Subject Classification.} Primary 14J32, 81T30;
 Secondary 14D07, 32G20, 14J33, 20C15, 13H10, 81R05.
@@ -227,13 +230,60 @@ rank and the hierarchy of scales that condition (C8) asks for, and the
 obstruction is the number of families, a hundred and one on the quintic and
 $100/|H|$ on a free quotient by a group $H$, never three.
 
+The same questions can be asked of the three other one-parameter families
+of Fermat type, the pencils
+\begin{equation}\label{eq:wpencil}
+X_\psi=\Big\{\sum_{i=1}^5x_i^{n_i}-d\psi\,x_1x_2x_3x_4x_5=0\Big\}
+\subset\PP(w),\qquad n_i=\frac{d}{w_i},
+\end{equation}
+of sextics in $\PP(1,1,1,1,2)$, octics in $\PP(1,1,1,1,4)$ and dectics in
+$\PP(1,1,1,2,5)$, whose periods and mirror maps were computed by
+Morrison~\cite{Mor92}, Klemm and Theisen~\cite{KT93} and
+Font~\cite{Fon93}. Here $d=\sum_iw_i$ is $6$, $8$ and $10$, each member
+with $\psi^d\delta\ne1$, where $\delta=\prod_iw_i^{w_i}$ is $4$, $256$ and
+$12\,500$, is smooth, and the group $\Gamma$ of diagonal phases preserving
+the pencil has order $108$, $128$ and $100$. The answer is different there.
+
+\begin{theorem}[Weighted pencils]\label{thm:E}
+Let $X_\psi$ be the sextic, octic or dectic pencil \eqref{eq:wpencil} with
+$\psi^d\delta\ne1$. Then $X_\psi$ is a smooth Calabi--Yau threefold with
+$h^{1,1}=1$ and $h^{2,1}=103$, $149$ and $145$, and the following hold.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*,itemsep=1pt]
+\item The generations are the monomials $x^{\bb}$ of weighted degree $d$
+with $0\le b_i\le n_i-2$, but they carry only $96$, $122$ and $100$
+distinct characters of $\Gamma$: $7$, $27$ and $42$ classes of two or three
+generations share a character.
+\item The cubic form, normalised so that $\prod_ix_i^{n_i-2}$ has value
+one, takes on three generations $\va,\bb,\cc$ the value
+$\psi^r\prod_iw_i^{k_i}$ when $a_i+b_i+c_i=n_i-2-r+n_ik_i$ for every $i$,
+with $r\in\{0,\dots,d-1\}$ and integers $k_i\ge0$, and zero otherwise; for
+$\psi\ne0$ every coupling allowed by $\Gamma$ is nonzero.
+\item For $\psi\ne0$ the mass map of the invariant direction has rank
+$99$, $125$ and $109$, so that $4$, $24$ and $36$ generations stay massless
+at every member; at $\psi=0$ its rank is $44$, $85$ and $72$.
+\item No member, and no quotient of a member by a group acting freely,
+carries three families with the standard embedding.
+\end{enumerate}
+\end{theorem}
+
+So the two properties that make the Dwork pencil transparent are special
+to it. On the weighted pencils a shift of the exponents at the coordinates
+of weight one can be balanced by a shift at the coordinate of larger
+weight, the characters of $\Gamma$ no longer label the generations, and the
+massless generations all lie in the span of the classes that share a
+character. The precise form of the mass condition (C8) in
+Theorem~\ref{thm:D} therefore fails on all three pencils, and so does the
+three-family condition (C2). Theorem~\ref{thm:E} is proved in
+Section~\ref{sec:weighted}, and Figure~\ref{fig:weighted} compares the four
+pencils.
+
 The constructions behind the four theorems were organised on the Anaxia
 engine of the BLLM programme~\cite{Ana26,BB26}.\footnote{Anaxia runs a
 failure-driven loop: each strategy for a target is a list of checks, each
 check is a computation or a proof with a named source, a failed check is
 recorded together with the change of strategy it forces, and the label of a
 target (open, candidate, proved) is computed by the engine from the record,
-never assigned by hand. For this paper the engine ran four targets. For the
+never assigned by hand. For this paper the engine ran five targets. For the
 couplings, the first strategy was the count of couplings allowed by the
 symmetry, as in~\cite{DGJ08}; its check that the allowed couplings are
 nonzero failed, because a symmetry count only bounds the number of nonzero
@@ -247,7 +297,14 @@ look for the viable vacuum on the quintic itself; its check of the number
 of families failed for the quintic and for each of its free quotients, and
 the change it forced was to separate the functional from the vacuum, which
 gives Theorem~\ref{thm:D}; the check of the existence of a viable vacuum
-then failed on the literature, and that target stays open. The engine
+then failed on the literature, and that target stays open. For the
+weighted pencils the first strategy was to carry the proof of
+Theorem~\ref{thm:A} over; its check that the characters are distinct
+failed at once on the sextic, where $103$ generations carry $96$
+characters, and the change it forced was to classify the generations that
+share a character by the wrapping of Lemma~\ref{lem:wwrap} and to compute
+the mass map block by block, which gives Theorem~\ref{thm:E}. The record
+of all five targets was made on release 3.1.0 of the engine. The engine
 proposes no mathematics of its own here: every statement is proved in the
 text, and the record of the loop is part of the archive of the
 paper~\cite{Repo}.}
@@ -301,7 +358,12 @@ Pham~\cite{Pha65}, Sebastiani and Thom~\cite{ST71} and
 Sakamoto~\cite{Sak74}. Two further aspects of the same compactifications,
 the suppression of the electroweak scale by singularities of the threefold
 and fibrations of Calabi--Yau manifolds by circles, are treated
-in~\cite{Bha26b,Bha25}.
+in~\cite{Bha26b,Bha25}. The weighted pencils of Section~\ref{sec:weighted}
+are the one-parameter models whose Picard--Fuchs equations, periods and
+mirror maps were found by Morrison~\cite{Mor92}, Klemm and
+Theisen~\cite{KT93} and Font~\cite{Fon93}, and the Hodge theory of
+quasi-smooth hypersurfaces in weighted projective space used there is due
+to Steenbrink~\cite{Ste77} and Dolgachev~\cite{Dol82}.
 
 \section{The dictionary}\label{sec:dictionary}
 
@@ -909,6 +971,566 @@ $\{3,2,0,0,0\}$ & 20 & $\gamma(1/5)^2/\gamma(2/5)$ & $10.4392$ & $0$\\
 \end{tabular}
 \end{table}
 
+\section{Weighted Fermat pencils}\label{sec:weighted}
+
+\subsection{The pencils}
+
+In this section $(d;w)$ is one of $(6;1,1,1,1,2)$, $(8;1,1,1,1,4)$ and
+$(10;1,1,1,2,5)$, so that $d=\sum w_i$ and $n_i=d/w_i$ is an integer:
+$n=(6,6,6,6,3)$, $(8,8,8,8,2)$ and $(10,10,10,5,2)$. The polynomial
+$F_\psi=\sum_ix_i^{n_i}-d\psi P$, $P=x_1x_2x_3x_4x_5$, is weighted
+homogeneous of degree $d$ for $\deg x_i=w_i$, and $X_\psi\subset\PP(w)$ is
+its zero locus \eqref{eq:wpencil}. We write
+\[
+\delta=\prod_iw_i^{w_i}\in\{4,\,256,\,12\,500\},
+\]
+and use the letters $i,j,k,l$ for distinct indices among the coordinates of
+weight one. Table~\ref{tab:wdata} collects the numbers proved in this
+section, with the quintic for comparison.\footnote{The three pencils are the
+weighted members of the family of one-parameter models whose periods and
+mirror maps were computed by Morrison~\cite{Mor92}, Klemm and
+Theisen~\cite{KT93} and Font~\cite{Fon93}. In those papers the coefficient
+of $P$ is normalised differently and the natural coordinate on the moduli
+space is $\psi^d$ up to a constant; the discriminant $\psi^d\delta=1$ below
+is the conifold locus of those papers, and the Fermat point $\psi=0$ is the
+Gepner point.}
+
+\begin{table*}[t]
+\caption{The four pencils of Fermat type. The rows give the degree and
+weights, the constant $\delta=\prod w_i^{w_i}$ of the discriminant
+$\psi^d\delta=1$, the intersection numbers of the hyperplane class $L$, the
+Euler characteristic and $h^{2,1}$, the order of $\Gamma$, the number of
+distinct characters carried by the generations, the number of classes of
+two or three generations sharing a character, the number of characters of
+$\Gamma$ carried by no generation, and the rank of the mass map of the
+invariant direction for $\psi\ne0$ and at $\psi=0$, with the number of
+generations it leaves massless.}
+\label{tab:wdata}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+ & quintic & sextic & octic & dectic\\
+\midrule
+$(d;w)$ & $(5;1,1,1,1,1)$ & $(6;1,1,1,1,2)$ & $(8;1,1,1,1,4)$ & $(10;1,1,1,2,5)$\\
+$\delta$ & $1$ & $4$ & $256$ & $12\,500$\\
+$L^3$, $c_2\cdot L$ & $5$, $50$ & $3$, $42$ & $2$, $44$ & $1$, $34$\\
+$\chi$, $h^{2,1}$ & $-200$, $101$ & $-204$, $103$ & $-296$, $149$ & $-288$, $145$\\
+$|\Gamma|$ & $125$ & $108$ & $128$ & $100$\\
+distinct characters & $101$ & $96$ & $122$ & $100$\\
+shared classes & $0$ & $7$ & $27$ & $42$\\
+characters not carried & $24$ & $12$ & $6$ & $0$\\
+rank for $\psi\ne0$ (massless) & $101$ ($0$) & $99$ ($4$) & $125$ ($24$) & $109$ ($36$)\\
+rank at $\psi=0$ (massless) & $51$ ($50$) & $44$ ($59$) & $85$ ($64$) & $72$ ($73$)\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{lemma}\label{lem:wsmooth}
+If $\psi^d\delta\ne1$, then $X_\psi$ is quasi-smooth, it misses the singular
+points of $\PP(w)$, and it is a smooth Calabi--Yau threefold with
+$h^{1,1}=1$. Its hyperplane class $L=c_1(\cO_X(1))$ generates $H^2(X,\Z)$
+modulo torsion, and
+\begin{equation}\label{eq:wchern}
+\begin{gathered}
+L^3=\frac{d}{\prod_iw_i},\qquad c_2\cdot L=\sigma_2(w)\,L^3,\\
+\chi=\big(\sigma_3(w)-d\,\sigma_2(w)\big)L^3,
+\end{gathered}
+\end{equation}
+with $\sigma_k$ the elementary symmetric functions of the weights. If
+$\psi^d\delta=1$, then $X_\psi$ is singular.
+\end{lemma}
+
+\begin{proof}
+The Euler relations $x_i\partial_iF_\psi=n_ix_i^{n_i}-d\psi P$ show that at a
+common zero of the partial derivatives $x_i^{n_i}=w_i\psi P$ for every $i$.
+If $P=0$ this forces $x=0$. Otherwise raise the $i$-th relation to the power
+$w_i$ and multiply: since $\prod_ix_i^{n_iw_i}=P^d$, this gives
+$P^d=\psi^d\delta P^d$, so $\psi^d\delta=1$. Hence $X_\psi$ is quasi-smooth
+when $\psi^d\delta\ne1$. Conversely, at $\psi=2^{-1/3}$, $\psi=1/2$ and
+$\psi=2^{-1/5}5^{-1/2}$ the points $(1,1,1,1,2^{1/3})$, $(1,1,1,1,2)$ and
+$(1,1,1,2^{1/5},5^{1/2})$ satisfy $x_i^{n_i}=w_i\psi P=w_i$, so they are
+singular points of the sextic, octic and dectic; the other roots of
+$\psi^d\delta=1$ are $\zeta\psi$ with $\zeta^d=1$, and
+$x_1\mapsto\zeta^{-1}x_1$ maps $X_{\zeta\psi}$ to $X_\psi$ because $n_1=d$.
+
+The singular points of $\PP(w)$ are $(0{:}0{:}0{:}0{:}1)$ for the sextic
+and the octic, with isotropy $\mu_2$ and $\mu_4$, and $(0{:}0{:}0{:}1{:}0)$
+and $(0{:}0{:}0{:}0{:}1)$ for the dectic, with isotropy $\mu_2$ and $\mu_5$.
+Each monomial $x_i^{n_i}$ occurs in $F_\psi$ with coefficient one, so $F_\psi$
+does not vanish at a coordinate point and $X_\psi$ misses them all; a
+quasi-smooth hypersurface in the smooth locus of $\PP(w)$ is smooth. By
+adjunction $K_X=\cO_X(d-\sum w_i)=\cO_X$, and the Lefschetz theorem for
+quasi-smooth hypersurfaces~\cite{Dol82} gives $h^{1,0}=h^{2,0}=0$ and
+$h^{1,1}=1$.
+
+The tangent bundle of $\PP(w)$ on its smooth locus has total Chern class
+$\prod_i(1+w_iH)$ by the weighted Euler sequence, and the normal bundle of
+$X$ is $\cO_X(d)$, so $c(T_X)=\prod_i(1+w_iL)(1+dL)^{-1}$. Expanding with
+$\sigma_1(w)=d$ gives $c_1=0$, $c_2=\sigma_2L^2$ and
+$c_3=(\sigma_3-d\sigma_2)L^3$, and $L^3=d\int_{\PP(w)}H^4=d/\prod w_i$. For
+the three pencils $(\sigma_2,\sigma_3)=(14,16)$, $(22,28)$ and $(34,52)$,
+which gives Table~\ref{tab:wdata}. If $L=mL'$ with $L'$ integral, then
+$m^3$ divides $L^3\in\{3,2,1\}$, which is cube-free, so $m=\pm1$; as
+$H^2(X,\Q)$ is spanned by $L$, the class $L$ generates $H^2(X,\Z)$ modulo
+torsion.
+\end{proof}
+
+\subsection{Labels and characters}
+
+The Jacobian ring $R=\C[x_1,\dots,x_5]/(\partial_1F_\psi,\dots,
+\partial_5F_\psi)$ is graded by $\deg x_i=w_i$. Quasi-smoothness says that
+the partial derivatives, of degrees $d-w_i$, form a regular sequence, so
+$R$ is a graded complete intersection with Hilbert series
+$\prod_i(1-t^{d-w_i})/(1-t^{w_i})$: it has dimension $\prod_i(n_i-1)$, which
+is $1250$, $2401$ and $2916$, its top degree is $\sum_i(d-2w_i)=3d$, and
+$R_{3d}$ is one-dimensional and spanned by $\Hess F_\psi$ by Macaulay's
+theorem, which holds for any regular sequence of weighted homogeneous
+polynomials. Griffiths' description of the Hodge structure extends to
+quasi-smooth hypersurfaces in weighted projective space, as shown by
+Steenbrink~\cite{Ste77} and Dolgachev~\cite{Dol82}: with
+\[
+\Omega_0=\sum_i(-1)^iw_ix_i\,dx_1\wedge\cdots\widehat{dx_i}\cdots\wedge dx_5,
+\]
+the residue along $X$ of $P\,\Omega_0/F_\psi^{q+1}$, for $P$ of degree
+$qd$, identifies $R_{qd}$ with $H^{3-q,q}(X)$, so that $H^{2,1}=R_d$ and
+$R_{3d}$ is the socle. The
+infinitesimal variation of the Hodge structure is again multiplication in
+$R$, and the cubic form is \eqref{eq:jacobianyukawa} with $\lambda$ a
+functional on $R_{3d}$; the derivation in~\cite{CG80} uses only the residue
+map and the residue pairing of $R$, both of which are available in the
+weighted setting.
+
+Let $B$ be the set of $\bb\in\Z^5$ with $0\le b_i\le n_i-2$ and
+$\sum_iw_ib_i=d$. We call its elements the labels.
+
+\begin{lemma}\label{lem:wlabels}
+Let $\psi^d\delta\ne1$. Every monomial $x^{\ee}$ of degree $d$ satisfies
+$x^{\ee}\equiv c\,\psi^r x^{\bb}$ in $R$ with $\bb\in B$, $c$ a product of
+weights, and $r\le1$ for the sextic and $r\le2$ for the octic and the
+dectic. The monomials $x^{\bb}$, $\bb\in B$, are a basis of $R_d=H^{2,1}$,
+so $|B|=h^{2,1}$.
+\end{lemma}
+
+\begin{proof}
+The relations $\partial_iF_\psi/n_i=0$ read
+\begin{equation}\label{eq:wreduce}
+x_i^{n_i-1}\equiv w_i\psi\prod_{j\ne i}x_j .
+\end{equation}
+In a monomial of degree $d$ at most one exponent satisfies $e_i\ge n_i-1$:
+two such exponents would carry weight at least $2d-w_i-w_j>d$. If
+$e_i\ge n_i-1$, then $e_i\in\{n_i-1,n_i\}$, and \eqref{eq:wreduce} replaces
+$x^{\ee}$ by $w_i\psi\,x^{\ee'}$ with $e'_i=e_i-n_i+1$ and $e'_j=e_j+1$ for
+$j\ne i$. If $e_i=n_i$, then $x^{\ee}=x_i^{n_i}$ and $\ee'=\one$. If
+$e_i=n_i-1$, then $e'_i=0$, the other coordinates carry weight $w_i$, and
+$e'_j\ge n_j-1$ forces $w_je_j\ge d-2w_j$, hence $w_i+2w_j\ge d$. For the
+sextic no pair $i\ne j$ has $w_i+2w_j\ge6$, and $\one\in B$ because every
+$n_j\ge3$; so one step suffices. For the octic and the dectic the only $j$
+with $w_i+2w_j\ge d$ for some $i\ne j$ is $j=5$, where $w_5=d/2$ and
+$n_5=2$; in that case, and in the case $\ee'=\one$, the exponent of $x_5$
+is one and a second step at $x_5$ gives an exponent vector with $e''_5=0$
+and the other entries raised by one. A third step would need $w_5+2w_k\ge
+d$, that is $w_k\ge d/4$, for some $k\le4$, which fails. So at most two
+steps reach a vector with all $e_i\le n_i-2$, which is a label.
+
+At $\psi=0$ the ring is $\bigotimes_i\C[x_i]/(x_i^{n_i-1})$, whose
+monomials with $e_i\le n_i-2$ are a basis; so $|B|=\dim R_d$. The Hilbert
+series does not depend on $\psi$, and the labels span $R_d$ for every
+$\psi$ by the first part, so they are a basis.
+\end{proof}
+
+\paragraph*{The symmetry group.}
+Let $K$ be the group of $\varepsilon\in\prod_i\mu_{n_i}$ with
+$\prod_i\varepsilon_i=1$, acting by $x_i\mapsto\varepsilon_ix_i$. It
+preserves $F_\psi$ for every $\psi$. The elements
+$(\lambda^{w_1},\dots,\lambda^{w_5})$ with $\lambda^d=1$ lie in $K$ and act
+trivially on $\PP(w)$, and they are the only such elements; they form a
+subgroup isomorphic to $\mu_d$ because the weights are coprime. Let
+$\Gamma=K/\mu_d$. Since $\mathrm{lcm}(n_i)=d$, the product map
+$\prod_i\mu_{n_i}\to\mu_d$ is onto and $|\Gamma|=\prod_in_i/d^2$, which is
+$108$, $128$ and $100$. A character of $\prod_i\mu_{n_i}$ is a vector
+$\bb\in\bigoplus_i\Z/n_i$, acting by $\varepsilon\mapsto\prod_i
+\varepsilon_i^{b_i}$; it is trivial on $K$ exactly when it is a multiple of
+$\one$, and it is trivial on $\mu_d$ exactly when $\sum_iw_ib_i\equiv0
+\pmod d$, a condition that is well defined because $w_in_i=d$. Hence
+\[
+\widehat\Gamma=\Big\{\bb\in\textstyle\bigoplus_i\Z/n_i:\ \sum_iw_ib_i
+\equiv0\pmod d\Big\}\Big/\langle\one\rangle .
+\]
+A monomial $x^{\ee}$ of degree divisible by $d$ transforms by the class
+$[\ee]$ of its exponent vector, and $\Omega_0$ transforms by
+$\prod_i\varepsilon_i=1$, so the isomorphisms $R_{qd}\cong H^{3-q,q}$ are
+$\Gamma$-equivariant and $R$ is graded by $\widehat\Gamma$. The Hessian is
+invariant, since $\partial_i\partial_jF_\psi$ transforms by
+$\varepsilon_i^{-1}\varepsilon_j^{-1}$ and the determinant by
+$\prod_i\varepsilon_i^{-2}=1$; so $R_{3d}$ carries the trivial character.
+Permutations of coordinates of equal weight also preserve $F_\psi$ and
+permute the labels.
+
+\begin{lemma}[Wrapping]\label{lem:wwrap}
+Two labels $\bb\ne\bb'$ carry the same character if and only if there is a
+shift $s\in\{1,\dots,d-1\}$ such that, with $a_i=\lfloor(b_i+s)/n_i\rfloor$,
+\[
+\begin{gathered}
+b'_i=b_i+s-n_ia_i,\qquad \sum_ia_i=s,\\
+b_i+s\not\equiv n_i-1\pmod{n_i}\quad\text{for all }i .
+\end{gathered}
+\]
+The shift from $\bb'$ back to $\bb$ is then $d-s$.
+\end{lemma}
+
+\begin{proof}
+Both labels satisfy $\sum w_ib_i=d\equiv0$, so they define the same
+character exactly when $\bb'\equiv\bb+s\one$ modulo $(n_1,\dots,n_5)$ for
+some $s$ modulo $d$. As $0\le b'_i\le n_i-2$, the entry $b'_i$ is the
+residue of $b_i+s$ in $\{0,\dots,n_i-1\}$, which must differ from $n_i-1$.
+Then $\sum_iw_ib'_i=\sum_iw_ib_i+sd-d\sum_ia_i$, which equals $d$ exactly
+when $\sum_ia_i=s$.
+\end{proof}
+
+\begin{proposition}\label{prop:wchars}
+Let $\psi^d\delta\ne1$. The classes of labels that carry the same character
+are exactly the following, and every other label carries a character of its
+own.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=*,itemsep=1pt]
+\item Sextic: the $4$ pairs $\{x_i^4x_5,\ x_j^2x_k^2x_l^2\}$ at shift
+$2$ and the $3$ pairs $\{x_i^3x_j^3,\ x_k^3x_l^3\}$ at shift $3$; $96$
+distinct characters.
+\item Octic: the $12$ pairs $\{x_i^6x_j^2,\ x_j^4x_k^2x_l^2\}$ and the $12$
+pairs $\{x_i^6x_jx_k,\ x_j^3x_k^3x_l^2\}$ at shift $2$, and the $3$ pairs
+$\{x_i^4x_j^4,\ x_k^4x_l^4\}$ at shift $4$; $122$ distinct characters.
+\item Dectic: the $3$ triples $\{x_i^8x_4,\ x_j^2x_k^2x_4^3,\
+x_i^2x_j^4x_k^4\}$; at shift $2$ the $12$ pairs $\{x_1^{c_1}x_2^{c_2}
+x_3^{c_3}x_4^3,\ x_1^{c_1+2}x_2^{c_2+2}x_3^{c_3+2}\}$ with $c_1+c_2+c_3=4$
+and $\cc$ not a permutation of $(2,2,0)$, the $6$ pairs
+$\{x_i^8x_j^2,\ x_j^4x_k^2x_4^2\}$ and the $3$ pairs
+$\{x_i^8x_jx_k,\ x_j^3x_k^3x_4^2\}$; at shift $4$ the $6$ pairs
+$\{x_i^6x_j^2x_4,\ x_j^6x_k^4\}$, the $3$ pairs
+$\{x_i^6x_jx_kx_4,\ x_j^5x_k^5\}$, the $6$ pairs
+$\{x_i^7x_jx_4,\ x_ix_j^5x_k^4\}$ and the $3$ pairs
+$\{x_i^6x_4^2,\ x_j^4x_k^4x_4\}$; $100$ distinct characters, so every
+character of $\Gamma$ is carried by some generation.
+\end{enumerate}
+The characters carried by no label are the $12$ classes of
+$(\pi(0,1,3,4),2)$ for the sextic and the $6$ classes of
+$(\pi(0,2,4,6),1)$ for the octic, $\pi$ running over the permutations of
+four entries. The set of characters carried by labels is closed under
+$\chi\mapsto-\chi$.
+\end{proposition}
+
+\begin{proof}
+We use Lemma~\ref{lem:wwrap} and treat the shifts $s\le d/2$; the others
+are their inverses. For the sextic, $b_i+s\le9<12$ for $i\le4$, so
+$a_i=1$ exactly when $b_i\ge6-s$, and the residue $n_i-1=5$ is excluded
+when $b_i=5-s$; for $x_5$, $b_5\le1$ and $a_5=\lfloor(b_5+s)/3\rfloor$,
+with $b_5+s\equiv2\pmod3$ excluded. At $s=1$ we have $a_5=0$ and need one
+$b_i\ge5$, which is impossible. At $s=2$ the value $b_5=0$ is excluded, so
+$b_5=1$ and $a_5=1$; we need exactly one $b_i\ge4$ among the first four,
+which sum to four, so $\bb=(4,0,0,0,1)$ up to order, and its image is
+$(0,2,2,2,0)$. At $s=3$ we have $a_5=1$ and need two entries $b_i\ge3$
+among the first four and none equal to two; two entries of at least three
+already have weight six, so $\bb=(3,3,0,0,0)$ up to order, with image
+$(0,0,3,3,0)$. No label occurs at two different shifts, so the classes are
+the pairs listed, $14$ labels in $7$ classes and $103-7=96$ characters.
+The same analysis for the octic and the dectic is carried out in
+Appendix~\ref{app:wlabels}. It uses two facts: for these pencils $n_5=2$
+and $b_5=0$, so $a_5=s/2$ and an odd shift is excluded by the residue of
+$x_5$; and the bounds $b_i\le n_i-2$ make each $a_i$ either $0$ or $1$,
+except $a_4\in\{0,1,2\}$ for the dectic.
+
+The characters not carried by a label are $108-96=12$, $128-122=6$ and
+$100-100=0$ in number. For the sextic, adding $s\one$ to
+$(\pi(0,1,3,4),2)$ gives a vector with an entry $5$ for $s\not\equiv0
+\pmod3$, and the vector $(\pi'(0,1,3,4),2)$ for $s=3$, where the last entry
+is $n_5-1$. So every representative of these classes has an entry $n_i-1$,
+and none is a label; each class contains two of the $24$ vectors
+$(\pi(0,1,3,4),2)$, which gives $12$ classes, and these are all the missing
+characters. For the octic, adding $s\one$ to $(\pi(0,2,4,6),1)$ gives an
+entry $7$ when $s$ is odd and the last entry $1=n_5-1$ when $s$ is even;
+each class contains four of the $24$ vectors, which gives $6$ classes.
+Finally $-(\pi(0,1,3,4),2)=(\pi(0,5,3,2),1)$, which becomes
+$(\pi(1,0,4,3),2)$ after adding $\one$, and $-(\pi(0,2,4,6),1)=
+(\pi(0,6,4,2),1)$; so the missing characters are closed under negation,
+and so are the carried ones.
+\end{proof}
+
+Figure~\ref{fig:weighted} compares the four pencils.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig_weighted.png}
+\caption{Left: for the quintic in $\PP^4$ and the sextic, octic and dectic
+pencils in $\PP(1,1,1,1,2)$, $\PP(1,1,1,1,4)$ and $\PP(1,1,1,2,5)$, the
+number of generations ($101$, $103$, $149$, $145$), the number of distinct
+characters they carry ($101$, $96$, $122$, $100$), and the rank of the mass
+map of the invariant direction for $\psi\ne0$ ($101$, $99$, $125$, $109$)
+and at $\psi=0$ ($51$, $44$, $85$, $72$). Only on the quintic do the first
+three bars agree. Right: the rank of the mass map over the $\psi$-plane of
+the dectic pencil, $109$ off the Fermat point and $72$ at $\psi=0$ (the drop
+is drawn with a small width); the ten points of the circle
+$12\,500\,\psi^{10}=1$ are the singular members.}
+\label{fig:weighted}
+\end{figure*}
+
+\subsection{The socle functional}
+
+Let $m_0=x^{\mathbf n-2\one}$, the monomial with exponents $n_i-2$; it has
+degree $\sum_iw_i(n_i-2)=3d$. A monomial $x^{\ee}$ of degree $3d$ is in
+sector $r\in\{0,\dots,d-1\}$ if $e_i\equiv n_i-2-r\pmod{n_i}$ for every
+$i$. We then write
+\begin{equation}\label{eq:wsector}
+e_i=n_i-2-r+n_ik_i ;
+\end{equation}
+each $k_i$ is a nonnegative integer, since $k_i\le-1$ would give
+$e_i\le-2-r$, and $\sum_ik_i=r$, by comparing degrees:
+$\sum_iw_ie_i=5d-2d-rd+d\sum_ik_i=3d$.
+
+\begin{theorem}[Weighted socle functional]\label{thm:wsocle}
+Let $\psi^d\delta\ne1$. Then $m_0$ spans $R_{3d}$, and the functional
+$\lambda$ on $R_{3d}$ with $\lambda(m_0)=1$ satisfies, for every monomial
+$x^{\ee}$ of degree $3d$,
+\[
+\lambda(x^{\ee})=\begin{cases}\psi^r\prod_iw_i^{k_i}&\text{if $\ee$ is in
+sector $r$, with $k$ as in \eqref{eq:wsector},}\\
+0&\text{otherwise.}\end{cases}
+\]
+A monomial of degree $3d$ is in a sector if and only if its character is
+trivial.
+\end{theorem}
+
+\begin{proof}
+The character of $x^{\ee}$ is trivial when $\ee\equiv c\one$ modulo
+$(n_1,\dots,n_5)$ for some integer $c$; taking $r\equiv-2-c\pmod d$ and
+using $n_i\mid d$ this is the condition $e_i\equiv n_i-2-r$, so the
+monomials with trivial character are those in a sector. Since $R_{3d}$ is
+one-dimensional with trivial character, every monomial with a nontrivial
+character vanishes in $R$.
+
+Let $\ee$ be in sector $r\ge1$. We claim that some $i$ has $n_ik_i\ge
+r+1$. Otherwise $k_i\le r/n_i=rw_i/d$ for every $i$, so $r=\sum_ik_i\le
+r\sum_iw_i/d=r$, with equality only if $n_ik_i=r$ for every $i$; then every
+$n_i$ divides $r$, and so does their least common multiple $d$, which is
+impossible for $1\le r<d$. For such an $i$ we have $e_i\ge n_i-1$, and
+\eqref{eq:wreduce} gives $x^{\ee}\equiv w_i\psi\,x^{\ee'}$ with
+$e'_i=e_i-n_i+1$ and $e'_j=e_j+1$ for $j\ne i$; by \eqref{eq:wsector}
+$\ee'$ is in sector $r-1$ with $k'_i=k_i-1$ and the other $k_j$ unchanged.
+After $r$ steps we reach sector $0$, where all $k_i$ vanish and
+$\ee=\mathbf n-2\one$. Collecting the factors,
+$x^{\ee}\equiv\psi^r\prod_iw_i^{k_i}\,m_0$. Finally, $R_{3d}$ is spanned
+by monomials, each of which is zero or a multiple of $m_0$, and
+$R_{3d}\ne0$; so $m_0$ spans $R_{3d}$.
+\end{proof}
+
+\begin{corollary}\label{cor:wcouplings}
+Let $\psi^d\delta\ne1$. The cubic form takes on three labels
+$\va,\bb,\cc$ the value $\lambda(x^{\va+\bb+\cc})$, up to the normalisation
+of $\lambda$: this is $\psi^r\prod_iw_i^{k_i}$ when $\va+\bb+\cc$ is in
+sector $r$, and zero when the character of $x^{\va+\bb+\cc}$ is
+nontrivial. In particular, for $\psi\ne0$ every coupling allowed by
+$\Gamma$ is nonzero. This is Theorem~\ref{thm:E}(ii).
+\end{corollary}
+
+\subsection{The mass map}
+
+The only label with trivial character is $h=\one$ for the sextic and
+$h=(2,2,2,2,0)$ for the octic and the dectic: a label $\bb\equiv c\one$ has
+$b_i=c$ for the coordinates of weight one, and the condition on the weight
+leaves only these. So the invariant part of $R_d$ is spanned by $x^h$,
+the invariant direction. For $\psi\ne0$ it contains the tangent vector
+$\partial_\psi F_\psi=-dP$ of the pencil: for the sextic $P=x^h$, and for
+the octic and the dectic $P=x^{\one}\equiv w_5\psi\,x^h$ by
+\eqref{eq:wreduce} at $x_5$, whose exponent one equals $n_5-1$. By
+Corollary~\ref{cor:wcouplings} the mass map of the invariant direction in
+the basis of labels is
+\[
+M_{\bb\cc}=\lambda\big(x^{h+\bb+\cc}\big),\qquad \bb,\cc\in B .
+\]
+Since $h$ has trivial character, $M_{\bb\cc}\ne0$ requires
+$[\cc]=-[\bb]$. For a character $\chi$ let $B_\chi$ be the set of labels
+carrying it; then $M$ is the direct sum of the blocks on
+$B_\chi\cup B_{-\chi}$, one for each pair $\{\chi,-\chi\}$ of characters
+carried by labels (Proposition~\ref{prop:wchars} shows that $-\chi$ is
+carried whenever $\chi$ is).
+
+\begin{lemma}\label{lem:wminor}
+Let $\psi\ne0$ and $\psi^d\delta\ne1$. Every entry of a block is
+$\psi^r\prod_iw_i^{k_i}\ne0$. For $\bb,\bb'\in B_\chi$ and
+$\cc,\cc'\in B_{-\chi}$ let $r$, $r'$, $\rho$, $\rho'$ be the sectors of
+$h+\bb+\cc$, $h+\bb'+\cc'$, $h+\bb+\cc'$ and $h+\bb'+\cc$, and
+$\Delta=r+r'-\rho-\rho'$. Then $\Delta\in\{-d,0,d\}$, and
+\[
+\begin{aligned}
+&M_{\bb\cc}M_{\bb'\cc'}-M_{\bb\cc'}M_{\bb'\cc}\\
+&\qquad=M_{\bb\cc'}M_{\bb'\cc}\big((\psi^d\delta)^{\Delta/d}-1\big),
+\end{aligned}
+\]
+which vanishes exactly when $\Delta=0$.
+\end{lemma}
+
+\begin{proof}
+The first statement is Theorem~\ref{thm:wsocle}, since each
+$h+\bb+\cc$ in a block has trivial character. The two sums
+$(h+\bb+\cc)+(h+\bb'+\cc')$ and $(h+\bb+\cc')+(h+\bb'+\cc)$ are equal, so
+by \eqref{eq:wsector}, with $k,k',\kappa,\kappa'$ the vectors of the four
+monomials, $n_i(k_i+k'_i-\kappa_i-\kappa'_i)=\Delta$ for every $i$. Hence
+every $n_i$ divides $\Delta$, so $d$ does, and $|\Delta|<2d$ because the
+sectors lie in $\{0,\dots,d-1\}$. The quotient of the two products is
+$\psi^{\Delta}\prod_iw_i^{\Delta w_i/d}=(\psi^d\delta)^{\Delta/d}$.
+\end{proof}
+
+\begin{table*}[t]
+\caption{The blocks of the mass map of the invariant direction that
+involve labels sharing a character. Each row gives the labels of
+$B_\chi$ and of $B_{-\chi}$ in the notation of
+Proposition~\ref{prop:wchars} (one representative of the orbit under
+permutations of the coordinates of weight one), the number of such blocks,
+the entries $M_{\bb\cc}$ with $\bb\in B_\chi$ in the order listed, and the
+number of generations each block leaves massless for $\psi\ne0$; ``self''
+means $-\chi=\chi$. All other blocks are a single label with $\chi=-\chi$
+or a pair of single labels, and have full rank.}
+\label{tab:wblocks}
+\centering
+\begin{tabular}{llllrr}
+\toprule
+pencil & $B_\chi$ & $B_{-\chi}$ & entries & blocks & massless\\
+\midrule
+sextic & $x_i^4x_5,\ x_j^2x_k^2x_l^2$ & $x_i^3x_jx_kx_l$ &
+$2\psi^2;\ 1$ & $4$ & $1$\\
+ & $x_i^3x_j^3,\ x_k^3x_l^3$ & self & $(2\psi^3,1;\ 1,2\psi^3)$ & $3$ & $0$\\
+\midrule
+octic & $x_i^6x_jx_k,\ x_j^3x_k^3x_l^2$ & $x_i^4x_jx_kx_l^2$ &
+$4\psi^2;\ 1$ & $12$ & $1$\\
+ & $x_i^6x_j^2,\ x_j^4x_k^2x_l^2$ & $x_j^6x_i^2,\ x_i^4x_k^2x_l^2$ &
+$(16\psi^4,4\psi^2;\ 4\psi^2,1)$ & $6$ & $2$\\
+ & $x_i^4x_j^4,\ x_k^4x_l^4$ & self & $(16\psi^4,1;\ 1,16\psi^4)$ & $3$ & $0$\\
+\midrule
+dectic & $x_i^2x_jx_kx_4^3,\ x_i^4x_j^3x_k^3$ & $x_i^2x_j^3x_k^3x_4$ &
+$10\psi^2;\ 1$ & $3$ & $1$\\
+ & $x_i^3x_jx_4^3,\ x_i^5x_j^3x_k^2$ & $x_ix_j^3x_k^4x_4$ &
+$10\psi^2;\ 1$ & $6$ & $1$\\
+ & $x_i^8x_jx_k,\ x_j^3x_k^3x_4^2$ & $x_i^4x_jx_kx_4^2$ &
+$50\psi^4;\ 10\psi^2$ & $3$ & $1$\\
+ & $x_i^7x_jx_4,\ x_ix_j^5x_k^4$ & $x_i^5x_jx_k^2x_4$ &
+$50\psi^4;\ 1$ & $6$ & $1$\\
+ & $x_i^8x_4,\ x_j^2x_k^2x_4^3,\ x_i^2x_j^4x_k^4$ & $x_i^4x_j^2x_k^2x_4$ &
+$50\psi^4;\ 10\psi^2;\ 1$ & $3$ & $2$\\
+ & $x_i^4x_4^3,\ x_i^6x_j^2x_k^2$ & $x_i^6x_4^2,\ x_j^4x_k^4x_4$ &
+$(500\psi^6,10\psi^2;\ 50\psi^4,1)$ & $3$ & $2$\\
+ & $x_i^8x_j^2,\ x_j^4x_k^2x_4^2$ & $x_j^8x_i^2,\ x_i^4x_k^2x_4^2$ &
+$(250\psi^6,50\psi^4;\ 50\psi^4,10\psi^2)$ & $3$ & $2$\\
+ & $x_i^6x_j^2x_4,\ x_j^6x_k^4$ & $x_i^6x_k^2x_4,\ x_k^6x_j^4$ &
+$(50\psi^4,1;\ 1,250\psi^6)$ & $3$ & $0$\\
+ & $x_i^6x_jx_kx_4,\ x_j^5x_k^5$ & self & $(50\psi^4,1;\ 1,250\psi^6)$ & $3$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{proposition}\label{prop:wmass}
+Let $\psi\ne0$ and $\psi^d\delta\ne1$. The blocks of the mass map that
+involve labels sharing a character are those of Table~\ref{tab:wblocks}.
+The mass map has rank $99$, $125$ and $109$ for the sextic, octic and
+dectic, its kernel has dimension $4$, $24$ and $36$ and lies in the span of
+the labels that share a character, and the rank is the same at every member
+with $\psi\ne0$ and $\psi^d\delta\ne1$. At $\psi=0$ the mass map is the
+matrix of the partial involution $\bb\mapsto\mathbf n-2\one-h-\bb$ on the
+labels with $\bb\le\mathbf n-2\one-h$, of rank $44$, $85$ and $72$.
+\end{proposition}
+
+\begin{proof}
+The classes of Proposition~\ref{prop:wchars} and their negatives give the
+rows of Table~\ref{tab:wblocks}: for one representative of each orbit the
+character $-\chi$ is computed from Lemma~\ref{lem:wwrap}, and the entries
+from Theorem~\ref{thm:wsocle}; Appendix~\ref{app:wblocks} lists the sectors
+and the vectors $k$. For example, for the sextic block with $i=1$,
+$h+(3,1,1,1,0)+(4,0,0,0,1)=(8,2,2,2,2)$ is in sector $2$ with
+$k=(1,0,0,0,1)$, which gives $2\psi^2$, and $h+(3,1,1,1,0)+(0,2,2,2,0)=
+(4,4,4,4,1)=\mathbf n-2\one$ gives $1$. A block in which one of $B_\chi$,
+$B_{-\chi}$ is a single label has the form $\left(\begin{smallmatrix}0&A\\
+A^{\mathsf T}&0\end{smallmatrix}\right)$ with $A$ a row or a column of
+nonzero entries, so it has rank two and leaves $|B_\chi|+|B_{-\chi}|-2$
+generations massless, in the span of the class of two or three labels. For
+a block with $2\times2$ matrix $A$, Lemma~\ref{lem:wminor} decides the
+rank: $\Delta=0$ for the second octic row and the sixth and seventh dectic
+rows, for instance $6+0-2-4=0$ in the sixth, so $A$ has rank one and two
+generations on each side of the block are massless; $\Delta=\pm d$ for the
+eighth dectic row and the three self-dual rows, whose determinants are
+$4\psi^6-1$, $256\psi^8-1$ and $12\,500\psi^{10}-1$ up to nonzero
+monomials, so these blocks have full rank. A single label with
+$\chi=-\chi$, and a pair of single labels, give a block of full rank by the
+first part of Lemma~\ref{lem:wminor}. Adding the last column of
+Table~\ref{tab:wblocks}: $4\cdot1=4$, $12\cdot1+6\cdot2=24$ and
+$3+6+3+6+3\cdot2+3\cdot2+3\cdot2=36$. None of the entries or
+determinants depends on $\psi$ beyond these monomials and the factor
+$\psi^d\delta-1$, so the rank is constant on the stated set.
+
+At $\psi=0$ every sector $r\ge1$ gives zero, so $M_{\bb\cc}\ne0$ exactly
+when $h+\bb+\cc=\mathbf n-2\one$. The vector
+$\cc=\mathbf n-2\one-h-\bb$ has degree $3d-2d=d$ and entries at most
+$n_i-2$, so it is a label exactly when $\bb\le\mathbf n-2\one-h$. Here
+$\mathbf n-2\one-h=(3,3,3,3,0)$, $(4,4,4,4,0)$ and $(6,6,6,1,0)$, and the
+labels below these vectors are counted by the coefficient of $t^6$ in
+$(1+t+t^2+t^3)^4$, which is $44$, of $t^8$ in $(1+t+\dots+t^4)^4$, which is
+$85$, and by $36+36=72$ solutions of $b_1+b_2+b_3+2b_4=10$ with $b_i\le6$
+and $b_4\le1$.
+\end{proof}
+
+\subsection{Three families}
+
+\begin{proposition}\label{prop:wthree}
+Let $X$ be a member of the sextic, octic or dectic pencil with
+$\psi^d\delta\ne1$, and $H$ a finite group acting freely on $X$. With the
+standard embedding, $X/H$ does not have three net families.
+\end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:dictionary} the number of net families on $Y=X/H$ is
+$|\chi(Y)|/2=|\chi(X)|/(2|H|)$, and three families need
+$|H|=|\chi(X)|/6$, that is $34$ for the sextic and $48$ for the dectic; for
+the octic $296/6$ is not an integer. Suppose $H$ has this order. The
+projection $\pi\colon X\to Y$ is \'etale of degree $|H|$, $\chi(\cO_Y)=
+\chi(\cO_X)/|H|=0$ and $c_1(Y)$ is torsion. As $H^2(X,\Q)=\Q L$ and $L$
+generates $H^2(X,\Z)$ modulo torsion (Lemma~\ref{lem:wsmooth}), every line
+bundle $D$ on $Y$ has $\pi^*D\equiv mL$ numerically for an integer $m$, and
+these $m$ form a subgroup of $\Z$. It contains $|H|$: the line bundle
+$\bigotimes_{g\in H}g^*\cO_X(1)$ is linearised by permuting its factors, so
+it descends to $Y$, and it is numerically $|H|L$ because $H$ acts trivially
+on $H^2(X,\Q)$. Let $m_0>0$ generate the subgroup and $D$ realise it. Then
+$m_0$ divides $|H|$, and
+\[
+\begin{gathered}
+D^3=\frac{m_0^3L^3}{|H|},\qquad c_2(Y)\cdot D=\frac{m_0\,c_2\cdot L}{|H|},\\
+\chi(Y,D)=\frac{D^3}{6}+\frac{c_2(Y)\cdot D}{12},
+\end{gathered}
+\]
+the last by Riemann--Roch with $c_1(Y)\equiv0$ and $\chi(\cO_Y)=0$. All
+three numbers are integers. For the sextic, $D^3=3m_0^3/34$ forces
+$34\mid m_0$, so $m_0=34$, $D^3=3468$, $c_2(Y)\cdot D=42$ and
+$\chi(Y,D)=578+7/2$. For the dectic, $D^3=m_0^3/48$ forces $12\mid m_0$ and
+$c_2(Y)\cdot D=17m_0/24$ forces $24\mid m_0$, so $m_0\in\{24,48\}$, with
+$\chi(Y,D)=48+17/12$ and $384+17/6$. None is an integer, a contradiction.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:E}]
+Smoothness and $h^{2,1}$ are Lemma~\ref{lem:wsmooth}, part (i) is
+Proposition~\ref{prop:wchars}, part (ii) is
+Corollary~\ref{cor:wcouplings}, part (iii) is Proposition~\ref{prop:wmass},
+and part (iv) is Proposition~\ref{prop:wthree} together with
+$|\chi(X)|/2\in\{102,148,144\}$ for $X$ itself.
+\end{proof}
+
+\begin{remark}[Why the quintic is different]\label{rem:wquintic}
+On the quintic all $n_i$ equal five, so a shift moves every exponent by the
+same amount and the wrapping count $\sum_ia_i=s$ of
+Lemma~\ref{lem:wwrap} has no solution: this is the proof of
+Theorem~\ref{thm:A}. When the $n_i$ differ, a wrap at a coordinate with
+large $n_i$ can be balanced by wraps at the coordinate with $n_5=3$ or
+$n_5=2$, and the shared classes of Proposition~\ref{prop:wchars} are
+exactly these balances. The mass map then has blocks larger than $1\times1$
+whose entries, all nonzero, satisfy $\Delta=0$, and these blocks carry the
+massless generations. Among the four pencils, the quintic is therefore the
+only one on which the characters of the symmetry group label the
+generations and the invariant deformation gives every generation a mass.
+\end{remark}
+
 \section{The selection conjecture}\label{sec:selection}
 
 \subsection{The landscape and its metric}
@@ -1061,6 +1683,12 @@ acting freely on $X$. The standard embedding on $X/H$ has
 $100/|H|$ net families. In particular condition \textup{(C2)} fails on
 $X/H$ for every such $H$, and no vacuum of the form $(X/H,T_{X/H})$ is
 viable.
+
+\textup{(iii)} On the sextic, octic and dectic pencils of
+Section~\ref{sec:weighted}, with $\psi\ne0$ and $\psi^d\delta\ne1$, the
+mass map of the invariant direction has a kernel of dimension $4$, $24$ and
+$36$, and condition \textup{(C2)} fails on every member and on every
+quotient of a member by a group acting freely.
 \end{proposition}
 
 \begin{proof}
@@ -1070,7 +1698,8 @@ the Euler characteristic of the quotient by $1/|H|$, so
 $\chi(X/H)=-200/|H|$, and by Theorem~\ref{thm:dictionary} the net number of
 families is $|\chi(X/H)|/2=100/|H|$. Wilson lines on $X/H$ break the gauge
 group but do not change this index. The equation $100/|H|=3$ has no
-solution in integers, so (C2) fails.
+solution in integers, so (C2) fails. Part (iii) is
+Propositions~\ref{prop:wmass} and~\ref{prop:wthree}.
 \end{proof}
 
 The proposition shows where the Dwork pencil stands with respect to the
@@ -1086,7 +1715,9 @@ which also address (C5) and (C6). For none of them are (C7), (C8) and (C9)
 established, and the words ``controlled'', ``acceptable'' and
 ``consistent'' in those conditions are fixed by comparison with
 measurement, not by a definition. By Theorem~\ref{thm:gscequiv} this is the
-whole of the open part of the Geometric Selection Conjecture.
+whole of the open part of the Geometric Selection Conjecture. The weighted
+pencils fail on both counts: they too never carry three families, and
+their mass map leaves generations massless at every member.
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -1108,28 +1739,35 @@ on a quintic the number of families of a free quotient is $100/|H|$, never
 three (Proposition~\ref{prop:dworkselect}). The selection of the vacuum is
 reduced by Theorem~\ref{thm:gscequiv} to the existence of one viable vacuum,
 and that existence depends on conditions (C7) to (C9), whose thresholds are
-set by measurement. The same two facts that drive Sections~\ref{sec:socle}
-to~\ref{sec:mass} are available for the one-parameter families of Fermat
-type in other weighted projective spaces; whether the characters of their
-symmetry groups still separate the generations there is a finite
-computation that this paper does not carry out.
+set by measurement. The same two facts drive Section~\ref{sec:weighted},
+where the three other one-parameter families of Fermat type are treated.
+There the characters no longer separate the generations, the invariant
+deformation leaves $4$, $24$ and $36$ of them massless at every member, and
+no member or free quotient carries three families. Among the four pencils
+of Fermat type, the quintic is the only one on which the symmetry labels
+every generation and the invariant deformation gives every generation a
+mass.
 
 \section*{Data and code availability}
 
 The programs that repeat the finite computations of this paper are in its
-archive at Zenodo, release 1.0.1,
-\href{https://doi.org/10.5281/zenodo.23480492}{doi:10.5281/zenodo.23480492}~\cite{Repo}, which also holds the figures and the record of the
-engine runs. They are written in C (the label and coupling counts), C++ (the
-expansion of the Hessian by permutations), Python (all counts, the
-intersection numbers of Appendix~\ref{app:fermat} and the Gamma values),
-Julia (the Gamma values and the intersection numbers), Macaulay2 (the
-Jacobian ring at two rational values of $\psi$, with the socle functional on
-all $3876$ monomials of degree fifteen and the Hessian) and Lean~4 (the
-counts and the arithmetic of the Hessian, checked by the kernel), with one
-shell script that runs them all. No proof in the paper depends on them.
-The constructions were organised on the Anaxia engine, release
-3.0.5~\cite{Ana26}, described in~\cite{BB26}; its record for the four
-targets of this paper is part of the archive. The programs and the engine
+archive at Zenodo, release 1.1.0, all versions
+\href{https://doi.org/10.5281/zenodo.23480310}{doi:10.5281/zenodo.23480310}~\cite{Repo},
+which also holds the figures and the record of the engine runs. They are
+written in C (the label and coupling counts), C++ (the expansion of the
+Hessian by permutations), Python (all counts, the intersection numbers of
+Appendix~\ref{app:fermat}, the Gamma values, and the labels, characters,
+couplings and mass maps of the weighted pencils), Julia (the Gamma values
+and the intersection numbers), Macaulay2 (the Jacobian ring of the quintic
+at two rational values of $\psi$, with the socle functional on all $3876$
+monomials of degree fifteen and the Hessian, and the Jacobian rings of the
+three weighted pencils at two rational values of $\psi$, with the socle
+functional on every monomial of degree $3d$) and Lean~4 (the counts, the
+arithmetic of the Hessian and the numbers of the weighted pencils, checked
+by the kernel), with one shell script that runs all $121$ checks. No proof
+in the paper depends on them. The constructions were organised on the
+Anaxia engine, release 3.1.0~\cite{Ana26}, described in~\cite{BB26}; its
+record for the five targets of this paper is part of the archive. The programs and the engine
 runs were prepared by Deep Bhattacharjee with AI assistance from Claude
 (Anthropic).
 
@@ -1441,6 +2079,161 @@ $\gamma(3/5)$ and $\gamma(4/5)$ are their inverses. The norms of the
 five types follow by multiplying the five factors, and the masses of
 Table~\ref{tab:fermat} are their inverses.
 
+\section{Shared characters on the octic and the dectic}\label{app:wlabels}
+
+\begin{table*}[t]
+\caption{The entries of the blocks of Table~\ref{tab:wblocks}, for the
+representative with $(i,j,k,l)=(1,2,3,4)$. Exponent vectors are written in
+full; the column $r$ is the sector of $h+\bb+\cc$ and $k$ is the vector of
+\eqref{eq:wsector}.}
+\label{tab:wblockdata}
+\centering
+\footnotesize
+\begin{tabular}{lrlllrll}
+\toprule
+pencil & row & $\bb$ & $\cc$ & $h+\bb+\cc$ & $r$ & $k$ & entry\\
+\midrule
+sextic & 1 & $(4,0,0,0,1)$ & $(3,1,1,1,0)$ & $(8,2,2,2,2)$ & $2$ & $(1,0,0,0,1)$ & $2\psi^{2}$\\
+ & 1 & $(0,2,2,2,0)$ & $(3,1,1,1,0)$ & $(4,4,4,4,1)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 2 & $(3,3,0,0,0)$ & $(3,3,0,0,0)$ & $(7,7,1,1,1)$ & $3$ & $(1,1,0,0,1)$ & $2\psi^{3}$\\
+ & 2 & $(3,3,0,0,0)$ & $(0,0,3,3,0)$ & $(4,4,4,4,1)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 2 & $(0,0,3,3,0)$ & $(3,3,0,0,0)$ & $(4,4,4,4,1)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 2 & $(0,0,3,3,0)$ & $(0,0,3,3,0)$ & $(1,1,7,7,1)$ & $3$ & $(0,0,1,1,1)$ & $2\psi^{3}$\\
+\midrule
+octic & 1 & $(6,1,1,0,0)$ & $(4,1,1,2,0)$ & $(12,4,4,4,0)$ & $2$ & $(1,0,0,0,1)$ & $4\psi^{2}$\\
+ & 1 & $(0,3,3,2,0)$ & $(4,1,1,2,0)$ & $(6,6,6,6,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 2 & $(6,2,0,0,0)$ & $(2,6,0,0,0)$ & $(10,10,2,2,0)$ & $4$ & $(1,1,0,0,2)$ & $16\psi^{4}$\\
+ & 2 & $(6,2,0,0,0)$ & $(4,0,2,2,0)$ & $(12,4,4,4,0)$ & $2$ & $(1,0,0,0,1)$ & $4\psi^{2}$\\
+ & 2 & $(0,4,2,2,0)$ & $(2,6,0,0,0)$ & $(4,12,4,4,0)$ & $2$ & $(0,1,0,0,1)$ & $4\psi^{2}$\\
+ & 2 & $(0,4,2,2,0)$ & $(4,0,2,2,0)$ & $(6,6,6,6,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 3 & $(4,4,0,0,0)$ & $(4,4,0,0,0)$ & $(10,10,2,2,0)$ & $4$ & $(1,1,0,0,2)$ & $16\psi^{4}$\\
+ & 3 & $(4,4,0,0,0)$ & $(0,0,4,4,0)$ & $(6,6,6,6,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 3 & $(0,0,4,4,0)$ & $(4,4,0,0,0)$ & $(6,6,6,6,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 3 & $(0,0,4,4,0)$ & $(0,0,4,4,0)$ & $(2,2,10,10,0)$ & $4$ & $(0,0,1,1,2)$ & $16\psi^{4}$\\
+\midrule
+dectic & 1 & $(2,1,1,3,0)$ & $(2,3,3,1,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$ & $10\psi^{2}$\\
+ & 1 & $(4,3,3,0,0)$ & $(2,3,3,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 2 & $(3,1,0,3,0)$ & $(1,3,4,1,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$ & $10\psi^{2}$\\
+ & 2 & $(5,3,2,0,0)$ & $(1,3,4,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 3 & $(8,1,1,0,0)$ & $(4,1,1,2,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 3 & $(0,3,3,2,0)$ & $(4,1,1,2,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$ & $10\psi^{2}$\\
+ & 4 & $(7,1,0,1,0)$ & $(5,1,2,1,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 4 & $(1,5,4,0,0)$ & $(5,1,2,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 5 & $(8,0,0,1,0)$ & $(4,2,2,1,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 5 & $(0,2,2,3,0)$ & $(4,2,2,1,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$ & $10\psi^{2}$\\
+ & 5 & $(2,4,4,0,0)$ & $(4,2,2,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 6 & $(4,0,0,3,0)$ & $(6,0,0,2,0)$ & $(12,2,2,7,0)$ & $6$ & $(1,0,0,2,3)$ & $500\psi^{6}$\\
+ & 6 & $(4,0,0,3,0)$ & $(0,4,4,1,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$ & $10\psi^{2}$\\
+ & 6 & $(6,2,2,0,0)$ & $(6,0,0,2,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 6 & $(6,2,2,0,0)$ & $(0,4,4,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 7 & $(8,2,0,0,0)$ & $(2,8,0,0,0)$ & $(12,12,2,2,0)$ & $6$ & $(1,1,0,1,3)$ & $250\psi^{6}$\\
+ & 7 & $(8,2,0,0,0)$ & $(4,0,2,2,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 7 & $(0,4,2,2,0)$ & $(2,8,0,0,0)$ & $(4,14,4,4,0)$ & $4$ & $(0,1,0,1,2)$ & $50\psi^{4}$\\
+ & 7 & $(0,4,2,2,0)$ & $(4,0,2,2,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$ & $10\psi^{2}$\\
+ & 8 & $(6,2,0,1,0)$ & $(6,0,2,1,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 8 & $(6,2,0,1,0)$ & $(0,4,6,0,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 8 & $(0,6,4,0,0)$ & $(6,0,2,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 8 & $(0,6,4,0,0)$ & $(0,4,6,0,0)$ & $(2,12,12,2,0)$ & $6$ & $(0,1,1,1,3)$ & $250\psi^{6}$\\
+ & 9 & $(6,1,1,1,0)$ & $(6,1,1,1,0)$ & $(14,4,4,4,0)$ & $4$ & $(1,0,0,1,2)$ & $50\psi^{4}$\\
+ & 9 & $(6,1,1,1,0)$ & $(0,5,5,0,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 9 & $(0,5,5,0,0)$ & $(6,1,1,1,0)$ & $(8,8,8,3,0)$ & $0$ & $(0,0,0,0,0)$ & $1$\\
+ & 9 & $(0,5,5,0,0)$ & $(0,5,5,0,0)$ & $(2,12,12,2,0)$ & $6$ & $(0,1,1,1,3)$ & $250\psi^{6}$\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+This appendix completes the proof of Proposition~\ref{prop:wchars}. By
+Lemma~\ref{lem:wwrap} it suffices to find, for each shift $s\le d/2$, the
+labels $\bb$ with $b_i+s\not\equiv n_i-1\pmod{n_i}$ for every $i$ and
+$\sum_ia_i=s$, and their images $\bb'$; the shift $d-s$ only reverses
+these pairs, so two labels carry the same character exactly when they are
+joined by a chain of the pairs found. For both pencils $n_5=2$ and
+$b_5=0$, so the condition at $x_5$ excludes every odd shift, and for an
+even shift $a_5=s/2$. In this appendix we drop the last coordinate, which
+is zero, and write labels as vectors of length four.
+
+\paragraph*{The octic.}
+Here $b_i\le6$ and $b_1+b_2+b_3+b_4=8$, and the shifts to consider are
+$s=2$ and $s=4$. Since $b_i+s\le10<16$, we have $a_i=1$ exactly when
+$b_i\ge8-s$, and the excluded residue is $b_i=7-s$. So $\sum_ia_i=s$ asks
+for exactly $s/2$ entries with $b_i\ge8-s$.
+
+At $s=2$ exactly one entry equals six and none equals five, and the other
+three entries add up to two. Up to a permutation of the coordinates this
+leaves $(6,2,0,0)$ and $(6,1,1,0)$, with images $(0,4,2,2)$ and
+$(0,3,3,2)$; there are twelve labels of each kind, which gives the $12+12$
+pairs of Proposition~\ref{prop:wchars}(b). At $s=4$ exactly two entries are
+at least four and none equals three; two entries of at least four already
+add up to eight, so $\bb$ is a permutation of $(4,4,0,0)$, with image the
+complementary permutation $(0,0,4,4)$, which gives three pairs.
+
+The labels of the three lists are distinct: the sources at $s=2$ have an
+entry six, their images have at most one entry larger than three, and the
+labels at $s=4$ have two entries four and no entry six. So no label lies in
+two pairs, the $27$ pairs are the classes, and the $149$ labels carry
+$149-27=122$ characters.
+
+\paragraph*{The dectic.}
+Here $b_i\le8$ for $i\le3$, $b_4\le3$ and $b_1+b_2+b_3+2b_4=10$, and the
+shifts to consider are $s=2$ and $s=4$. For $i\le3$, $b_i+s\le12<20$, so
+$a_i=1$ exactly when $b_i\ge10-s$, and the excluded residue is
+$b_i=9-s$. For $x_4$ we have $a_4=\lfloor(b_4+s)/5\rfloor$ and the excluded
+residue is $b_4+s\equiv4\pmod5$. The condition is
+\[
+\#\{i\le3:\ b_i\ge10-s\}+a_4=s/2 .
+\]
+
+At $s=2$ the value $b_4=2$ is excluded, $a_4=1$ exactly when $b_4=3$, and
+no $b_i$ equals seven. Either one $b_i$ equals eight and $b_4\le1$, which
+leaves $(8,0,0,1)$, $(8,2,0,0)$ and $(8,1,1,0)$ up to a permutation of the
+first three coordinates, with images $(0,2,2,3)$, $(0,4,2,2)$ and
+$(0,3,3,2)$ under the same permutation; or no $b_i$ is at least eight and
+$b_4=3$, which leaves the fifteen labels $(c_1,c_2,c_3,3)$ with
+$c_1+c_2+c_3=4$, with images $(c_1+2,c_2+2,c_3+2,0)$.
+
+At $s=4$ the value $b_4=0$ is excluded, so $b_4\ge1$ and $a_4=1$; hence
+exactly one $b_i$ is at least six, and none equals five. The other entries
+satisfy $b_j+b_k+2b_4=10-b_i\le4$ with $b_4\ge1$, which leaves
+$(6,2,0,1)$, $(6,1,1,1)$, $(6,0,0,2)$, $(7,1,0,1)$ and $(8,0,0,1)$ up to
+a permutation of the first three coordinates, with images $(0,6,4,0)$,
+$(0,5,5,0)$, $(0,4,4,1)$, $(1,5,4,0)$ and $(2,4,4,0)$.
+
+Sorting the labels of these lists by $b_4$ shows which of them coincide.
+With $b_4=3$ there are the sources $(c_1,c_2,c_3,3)$ and the image
+$(0,2,2,3)$, which is one of them, with $\cc=(0,2,2)$. With $b_4=2$ there
+are $(0,4,2,2)$, $(0,3,3,2)$ and $(6,0,0,2)$, all different. With $b_4=1$
+there are $(8,0,0,1)$, which occurs at both shifts, and $(6,2,0,1)$,
+$(6,1,1,1)$, $(7,1,0,1)$ and $(0,4,4,1)$, all different. With $b_4=0$ there
+are $(8,2,0,0)$ and $(8,1,1,0)$, the images $(c_1+2,c_2+2,c_3+2,0)$, all of
+whose entries are at least two, and $(0,6,4,0)$, $(0,5,5,0)$, $(1,5,4,0)$
+and $(2,4,4,0)$, of which only the last has all entries at least two; it is
+the image of $\cc=(0,2,2)$. So the only chains longer than one pair are
+\[
+(8,0,0,1)\xrightarrow{s=2}(0,2,2,3)\xrightarrow{s=2}
+(2,4,4,0)\xleftarrow{s=4}(8,0,0,1)
+\]
+and its permutations, the three triples of Proposition~\ref{prop:wchars}(c).
+The remaining pairs are the $12$ with $\cc$ not a permutation of $(2,2,0)$
+and the $6+3$ others at $s=2$, and the $6+3+3+6$ at $s=4$, which are the
+pairs listed there: $39$ pairs and $3$ triples, $87$ labels in $42$ classes,
+and $145-87+42=100$ characters.
+
+\section{The blocks of the mass map}\label{app:wblocks}
+
+Table~\ref{tab:wblockdata} gives the data behind Table~\ref{tab:wblocks}.
+For each row we take the representative with $(i,j,k,l)=(1,2,3,4)$ and
+list, for $\bb\in B_\chi$ and $\cc\in B_{-\chi}$ in the order of
+Table~\ref{tab:wblocks}, the vector $h+\bb+\cc$, its sector $r$, the vector
+$k$ of \eqref{eq:wsector} and the entry $\psi^r\prod_iw_i^{k_i}$ of
+Theorem~\ref{thm:wsocle}. The other blocks of each row follow by permuting
+the coordinates of weight one. For the blocks of size $2\times2$ the number
+$\Delta$ of Lemma~\ref{lem:wminor} is $6$ for the self-dual sextic row, $0$
+and $8$ for the second and third octic rows, and $0$, $0$, $10$ and $10$ for
+the sixth to ninth dectic rows; for instance in the eighth dectic row
+$\Delta=4+6-0-0=10$, so the determinant is
+$50\cdot250\,\psi^{10}-1=12\,500\,\psi^{10}-1$.
+
+
 \makeatletter\def\bibsection{\section*{References}}\makeatother
 \begin{thebibliography}{99}\raggedright\advance\leftskip\labelwidth
 
@@ -1563,6 +2356,32 @@ L.~B.~Anderson, J.~Gray, A.~Lukas and E.~Palti, Heterotic line bundle
 standard models, J. High Energy Phys. \textbf{2012}, no.~6, 113,
 \href{https://doi.org/10.1007/JHEP06(2012)113}{doi:10.1007/JHEP06(2012)113}.
 
+\bibitem{Mor92}
+D.~R.~Morrison, Picard--Fuchs equations and mirror maps for hypersurfaces,
+in \emph{Essays on Mirror Manifolds}, International Press, Hong Kong, 1992,
+241--264, \href{https://arxiv.org/abs/hep-th/9111025}{arXiv:hep-th/9111025}.
+
+\bibitem{KT93}
+A.~Klemm and S.~Theisen, Considerations of one-modulus Calabi--Yau
+compactifications: Picard--Fuchs equations, K\"ahler potentials and mirror
+maps, Nucl. Phys. B \textbf{389} (1993), 153--180,
+\href{https://doi.org/10.1016/0550-3213(93)90289-2}{doi:10.1016/0550-3213(93)90289-2}.
+
+\bibitem{Fon93}
+A.~Font, Periods and duality symmetries in Calabi--Yau compactifications,
+Nucl. Phys. B \textbf{391} (1993), 358--388,
+\href{https://doi.org/10.1016/0550-3213(93)90152-F}{doi:10.1016/0550-3213(93)90152-F}.
+
+\bibitem{Ste77}
+J.~H.~M.~Steenbrink, Intersection form for quasi-homogeneous singularities,
+Compositio Math. \textbf{34} (1977), 211--223.
+
+\bibitem{Dol82}
+I.~Dolgachev, Weighted projective varieties, in \emph{Group Actions and
+Vector Fields}, Lecture Notes in Math. \textbf{956}, Springer, Berlin,
+1982, 34--71,
+\href{https://doi.org/10.1007/BFb0101508}{doi:10.1007/BFb0101508}.
+
 \bibitem{Bha26a}
 D.~Bhattacharjee, U.~Bhattacharya and S.~Ghosh, One missing axiom for the
 complete closure of the heterotic landscape: resonance classifier of a
@@ -1584,8 +2403,8 @@ manifolds, Preprints.org (2025),
 
 \bibitem{Ana26}
 D.~Bhattacharjee, BLLM: Beyond the LLM with Deep Human-Mind-AI, the Anaxia
-engine, release 3.0.5, Zenodo (2026),
-\href{https://doi.org/10.5281/zenodo.23469389}{doi:10.5281/zenodo.23469389};
+engine, release 3.1.0, Zenodo (2026),
+\href{https://doi.org/10.5281/zenodo.23484160}{doi:10.5281/zenodo.23484160};
 all versions
 \href{https://doi.org/10.5281/zenodo.23286641}{doi:10.5281/zenodo.23286641}.
 
@@ -1595,9 +2414,8 @@ Human-Mind-AI, paper distributed with the engine~\cite{Ana26} (2026).
 
 \bibitem{Repo}
 D.~Bhattacharjee, Which string vibrations become which generations on the
-Dwork quintic: code, checks and engine record, release 1.0.1, Zenodo (2026),
-\repolink; all versions
-\href{https://doi.org/10.5281/zenodo.23480310}{doi:10.5281/zenodo.23480310}.
+Dwork quintic: code, checks and engine record, release 1.1.0, Zenodo
+(2026), all versions \repolink.
 
 \end{thebibliography}
 

@@ -178,6 +178,78 @@ theorem hessian_socle :
     3450000 - 250000 = 3200000 := by
   decide +kernel
 
+/-! ## The weighted Fermat pencils -/
+
+/-- all lists whose i-th entry lies in {0, ..., k_i - 1} -/
+def boxes : List Nat → List (List Nat)
+  | [] => [[]]
+  | k :: ks => (List.range k).flatMap (fun x => (boxes ks).map (x :: ·))
+
+def wdeg (w v : List Nat) : Nat := (List.zipWith (· * ·) w v).foldl (· + ·) 0
+
+/-- the labels of the pencil of degree d in P(w), n_i = d / w_i: b_i ≤ n_i - 2, degree d -/
+def wlabels (d : Nat) (w n : List Nat) : List (List Nat) :=
+  (boxes (n.map (· - 1))).filter (fun v => wdeg w v == d)
+
+/-- the character of x^v: v modulo n up to multiples of (1,...,1), as the least of its
+    d shifts written in base ten -/
+def wcls (d : Nat) (n v : List Nat) : Nat :=
+  ((List.range d).map (fun k =>
+    (List.zipWith (fun x m => (x + k) % m) v n).foldl (fun a x => 10 * a + x) 0)).foldl min 1000000
+
+def distinct : List Nat → Nat
+  | [] => 0
+  | x :: xs => (if xs.contains x then 0 else 1) + distinct xs
+
+/-- number of labels whose character is shared with another label -/
+def shared (L : List Nat) : Nat := L.countP (fun c => L.countP (· == c) ≥ 2)
+
+def sextic : List (List Nat) := wlabels 6 [1, 1, 1, 1, 2] [6, 6, 6, 6, 3]
+def octic : List (List Nat) := wlabels 8 [1, 1, 1, 1, 4] [8, 8, 8, 8, 2]
+def dectic : List (List Nat) := wlabels 10 [1, 1, 1, 2, 5] [10, 10, 10, 5, 2]
+
+/-- 103, 149, 145 labels carrying 96, 122, 100 characters; 14, 54, 87 labels share a
+    character with another label -/
+theorem weighted_labels :
+    sextic.length = 103 ∧ distinct (sextic.map (wcls 6 [6, 6, 6, 6, 3])) = 96 ∧
+    shared (sextic.map (wcls 6 [6, 6, 6, 6, 3])) = 14 ∧
+    octic.length = 149 ∧ distinct (octic.map (wcls 8 [8, 8, 8, 8, 2])) = 122 ∧
+    shared (octic.map (wcls 8 [8, 8, 8, 8, 2])) = 54 ∧
+    dectic.length = 145 ∧ distinct (dectic.map (wcls 10 [10, 10, 10, 5, 2])) = 100 ∧
+    shared (dectic.map (wcls 10 [10, 10, 10, 5, 2])) = 87 := by
+  decide +kernel
+
+def esym2 (w : List Nat) : Nat :=
+  (List.range 5).foldl (fun s i => (List.range 5).foldl (fun s j =>
+    if i < j then s + w.getD i 0 * w.getD j 0 else s) s) 0
+
+def esym3 (w : List Nat) : Nat :=
+  (List.range 5).foldl (fun s i => (List.range 5).foldl (fun s j => (List.range 5).foldl
+    (fun s k => if i < j && j < k then s + w.getD i 0 * w.getD j 0 * w.getD k 0 else s) s) s) 0
+
+/-- -χ = (d σ₂ - σ₃) d / ∏ w, and h^{2,1} = 1 - χ/2 is the number of labels -/
+theorem weighted_euler :
+    (6 * esym2 [1, 1, 1, 1, 2] - esym3 [1, 1, 1, 1, 2]) * (6 / 2) = 204 ∧
+    (8 * esym2 [1, 1, 1, 1, 4] - esym3 [1, 1, 1, 1, 4]) * (8 / 4) = 296 ∧
+    (10 * esym2 [1, 1, 1, 2, 5] - esym3 [1, 1, 1, 2, 5]) * (10 / 10) = 288 ∧
+    204 / 2 + 1 = 103 ∧ 296 / 2 + 1 = 149 ∧ 288 / 2 + 1 = 145 ∧
+    esym2 [1, 1, 1, 1, 2] * 3 = 42 ∧ esym2 [1, 1, 1, 2, 5] * 1 = 34 := by
+  decide +kernel
+
+/-- on a free quotient by H with π*D = m L, D³ = m³ L³/|H| and c₂·D = m c₂·L/|H|; the
+    Riemann-Roch number D³/6 + c₂·D/12 is an integer only if 12 divides 2 D³ + c₂·D -/
+def rrFails (H L3 c2L : Nat) : Bool :=
+  (List.range (H + 1)).all (fun m =>
+    !(m > 0 && H % m == 0 && (m ^ 3 * L3) % H == 0 && (m * c2L) % H == 0) ||
+    (2 * (m ^ 3 * L3 / H) + m * c2L / H) % 12 != 0)
+
+/-- three families needs |H| = 34 on the sextic and 48 on the dectic, and the Riemann-Roch
+    number is never an integer there; 200 and 296 are not divisible by 6 -/
+theorem no_three_families :
+    204 / 6 = 34 ∧ 288 / 6 = 48 ∧ 200 % 6 ≠ 0 ∧ 296 % 6 ≠ 0 ∧
+    rrFails 34 3 42 = true ∧ rrFails 48 1 34 = true := by
+  decide +kernel
+
 end Strings
 
 #print axioms Strings.labels_count
@@ -191,3 +263,6 @@ end Strings
 #print axioms Strings.mass_map
 #print axioms Strings.moved_point_rule
 #print axioms Strings.hessian_socle
+#print axioms Strings.weighted_labels
+#print axioms Strings.weighted_euler
+#print axioms Strings.no_three_families

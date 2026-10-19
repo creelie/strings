@@ -1,7 +1,7 @@
 """Figures of the paper on the Dwork quintic.
 
-Writes fig_labels.png, fig_masses.png, fig_hodge.png and fig_landscape.png
-into ../paper/figures as flattened 256-colour PNG files about 1600 pixels wide.
+Writes fig_labels.png, fig_masses.png, fig_hodge.png, fig_landscape.png and
+fig_weighted.png into ../paper/figures as flattened 256-colour PNG files about 1600 pixels wide.
 Run from any directory: python3 figures/make_figures.py
 """
 import itertools
@@ -287,8 +287,65 @@ def fig_landscape():
     save(fig, "fig_landscape.png")
 
 
+PENCILS = [(r"$\mathbb{P}^4$", 101, 101, 101, 51),
+           (r"$\mathbb{P}(1,1,1,1,2)$", 103, 96, 99, 44),
+           (r"$\mathbb{P}(1,1,1,1,4)$", 149, 122, 125, 85),
+           (r"$\mathbb{P}(1,1,1,2,5)$", 145, 100, 109, 72)]
+QUANTITIES = [("generations", "#3b5b92"), ("characters", "#2ca02c"),
+              (r"rank, $\psi\neq0$", "#ff7f0e"), (r"rank, $\psi=0$", "#c62828")]
+
+
+def fig_weighted():
+    fig = plt.figure(figsize=(11.0, 5.0))
+    ax = fig.add_subplot(1, 2, 1, projection="3d")
+    dx, dy, gap = 0.62, 0.42, 1.25
+    for i, row in enumerate(PENCILS):
+        for j, (name, colour) in enumerate(QUANTITIES):
+            v = row[1 + j]
+            ax.bar3d(j, gap * i, 0, dx, dy, v, color=colour, alpha=0.92, shade=True,
+                     edgecolor="#333333", linewidth=0.3)
+    ax.set_xticks([j + dx / 2 for j in range(4)])
+    ax.set_xticklabels([q[0] for q in QUANTITIES], fontsize=7.5, rotation=-10, ha="left")
+    ax.set_yticks([gap * i + dy / 2 for i in range(4)])
+    ax.set_yticklabels([p[0] for p in PENCILS], fontsize=7.5, ha="left", va="center")
+    ax.set_zlim(0, 160)
+    ax.set_zlabel("number", labelpad=4)
+    ax.view_init(elev=38, azim=-58)
+    ax.set_title("the four pencils of Fermat type", pad=2)
+
+    ax2 = fig.add_subplot(1, 2, 2, projection="3d")
+    n = 161
+    rho = 12500 ** (-0.1)
+    x = np.linspace(-0.6, 0.6, n)
+    X, Y = np.meshgrid(x, x)
+    R = np.hypot(X, Y)
+    Z = 109 - 37 * np.exp(-(R / 0.025) ** 2)
+    ax2.plot_wireframe(X, Y, Z, rstride=8, cstride=8, color="#7f97bd", linewidth=0.5)
+    ax2.plot([0, 0], [0, 0], [72, 109], color="#c62828", lw=1.5)
+    ax2.scatter([0], [0], [72], color="#c62828", s=30, depthshade=False)
+    th = np.linspace(0, 2 * np.pi, 200)
+    ax2.plot(rho * np.cos(th), rho * np.sin(th), 109.3 * np.ones_like(th),
+             color="#ff7f0e", lw=0.8)
+    for k in range(10):
+        a = 2 * np.pi * k / 10
+        ax2.scatter(rho * np.cos(a), rho * np.sin(a), 109.6, color="#ff7f0e", s=36,
+                    edgecolors="k", linewidths=0.4, depthshade=False)
+    ax2.text(0.03, 0.0, 69, r"$\psi=0$: rank $72$", fontsize=10, color="#c62828")
+    ax2.text2D(0.70, 0.76, r"$12500\,\psi^{10}=1$", transform=ax2.transAxes, fontsize=10,
+               color="#b35900")
+    ax2.text2D(0.06, 0.80, "rank $109$, thirty-six\nmassless generations",
+               transform=ax2.transAxes, fontsize=10)
+    ax2.set_xlabel(r"$\mathrm{Re}\,\psi$"); ax2.set_ylabel(r"$\mathrm{Im}\,\psi$")
+    ax2.set_zlabel("rank", labelpad=7)
+    ax2.set_zlim(60, 114)
+    ax2.view_init(elev=24, azim=-52)
+    ax2.set_title("rank of the mass map on the dectic pencil", pad=0)
+    fig.subplots_adjust(left=0.0, right=0.95, top=0.93, bottom=0.04, wspace=0.10)
+    save(fig, "fig_weighted.png")
+
+
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    which = sys.argv[1:] or ["labels", "masses", "hodge", "landscape"]
+    which = sys.argv[1:] or ["labels", "masses", "hodge", "landscape", "weighted"]
     for w in which:
         globals()["fig_" + w]()
