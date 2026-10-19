@@ -1,5 +1,7 @@
 # Which String Vibrations Become Which Generations on the Dwork Quintic
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23480310.svg)](https://doi.org/10.5281/zenodo.23480310)
+
 Deep Bhattacharjee and Ushashi Bhattacharya
 
 This repository holds the paper, the independent checks and the engine record
@@ -74,8 +76,18 @@ cd code && PYTHONPATH=/path/to/eBLLM/src python3 bllm/strings_loop.py
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). The code is archived at Zenodo with every
-release.
+See [`CITATION.cff`](CITATION.cff). Zenodo archives each GitHub release under
+its own version DOI and gathers all of them under one concept DOI; the paper
+cites the version DOI of release v1.0.0.
+
+| | DOI |
+| --- | --- |
+| release v1.0.0 (version DOI) | [10.5281/zenodo.23480311](https://doi.org/10.5281/zenodo.23480311) |
+| all versions (concept DOI) | [10.5281/zenodo.23480310](https://doi.org/10.5281/zenodo.23480310) |
+
+Everything in the paper, with the checks, the engine record and the release
+assets, is also collected in one file,
+[`DworkGenerations_masterzipfinal2.zip`](https://github.com/creelie/strings/raw/main/DworkGenerations_masterzipfinal2.zip).
 
 ## License
 
