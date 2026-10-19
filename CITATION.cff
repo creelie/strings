@@ -18,14 +18,17 @@ abstract: >-
   Anaxia engine.
 type: software
 license: MIT
-version: 1.0.1
-doi: 10.5281/zenodo.23480311
+version: 1.0.2
+doi: 10.5281/zenodo.23480492
 date-released: "2026-10-19"
 repository-code: "https://github.com/creelie/strings"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23480310
     description: "Concept DOI of all versions"
+  - type: doi
+    value: 10.5281/zenodo.23480492
+    description: "Version DOI of release v1.0.1"
   - type: doi
     value: 10.5281/zenodo.23480311
     description: "Version DOI of release v1.0.0"
