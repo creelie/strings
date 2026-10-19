@@ -7,7 +7,7 @@ Deep Bhattacharjee and Ushashi Bhattacharya
 This repository holds the paper, the independent checks and the engine record
 for *Which String Vibrations Become Which Generations on the Dwork Quintic*.
 The paper is in
-[`preprintDworkGenerations/DworkGenerations.pdf`](preprintDworkGenerations/DworkGenerations.pdf)
+[`preprints/DworkGenerations.pdf`](preprints/DworkGenerations.pdf)
 and its LaTeX source in [`paper/`](paper/).
 
 ## What is proved
@@ -60,7 +60,7 @@ The existence of a viable vacuum is open.
 |---|---|
 | `paper/` | `main.tex` and the figures as PNG |
 | `figures/` | `make_figures.py`, which draws the five figures |
-| `preprintDworkGenerations/` | the compiled paper |
+| `preprints/` | the compiled paper |
 | `code/checks/` | independent checks in C, C++, Python, Julia and Macaulay2 |
 | `code/run_checks.sh` | runs every check and prints one summary line |
 | `code/bllm/` | the failure, change and retry record of the five targets on the Anaxia engine |
