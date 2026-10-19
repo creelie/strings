@@ -1,0 +1,303 @@
+[
+  {
+    "target": "couplings",
+    "label": "CANDIDATE",
+    "blocking": [
+      "human"
+    ],
+    "certified_root": true,
+    "rounds": [
+      {
+        "round": 1,
+        "strategy": "count the couplings allowed by the symmetry",
+        "secs": 1.1,
+        "checks": {
+          "symmetry-count": {
+            "ok": true,
+            "evidence": "1431 unordered triples of labels with x^(b+b'+b'') fixed by Gamma, the count of Doran-Greene-Judes"
+          },
+          "allowed-couplings-nonzero": {
+            "ok": false,
+            "evidence": "at psi = 0 only 566 of the 1431 allowed couplings are nonzero, so the symmetry count bounds the nonzero couplings from above and decides nothing more"
+          }
+        },
+        "failed": [
+          "allowed-couplings-nonzero"
+        ],
+        "change": "evaluate the socle functional of the Jacobian ring on every monomial of degree fifteen",
+        "label": "OPEN",
+        "blocking": [
+          "proof",
+          "human"
+        ]
+      },
+      {
+        "round": 2,
+        "strategy": "socle functional on every monomial of degree fifteen",
+        "secs": 8.3,
+        "checks": {
+          "socle-functional": {
+            "ok": true,
+            "evidence": "Jacobian ring at psi = 2 and psi = 1/3: socle functional psi^r in sector r, zero elsewhere, on all 3876 monomials of degree 15 (8 checks passed, 0 failed)"
+          },
+          "coupling-powers": {
+            "ok": true,
+            "evidence": "the allowed couplings are psi^r with r = 0, 1, 2, 3 on [566, 425, 280, 160] unordered triples; every other coupling vanishes"
+          }
+        },
+        "failed": [],
+        "change": "",
+        "label": "CANDIDATE",
+        "blocking": [
+          "human"
+        ]
+      }
+    ],
+    "ledger": [
+      {
+        "t": 1,
+        "label": "OPEN",
+        "factors": {
+          "proof": 0,
+          "formal": 1,
+          "code": 1,
+          "trace": 1,
+          "sim": 1,
+          "risk": 1,
+          "lit": 1,
+          "human": 0
+        },
+        "blocking": [
+          "proof",
+          "human"
+        ],
+        "debt_mass": 2.0,
+        "core": 2,
+        "density": "1",
+        "accepted": true
+      },
+      {
+        "t": 2,
+        "label": "CANDIDATE",
+        "factors": {
+          "proof": 1,
+          "formal": 1,
+          "code": 1,
+          "trace": 1,
+          "sim": 1,
+          "risk": 1,
+          "lit": 1,
+          "human": 0
+        },
+        "blocking": [
+          "human"
+        ],
+        "debt_mass": 2.0,
+        "core": 2,
+        "density": "1",
+        "accepted": true
+      }
+    ]
+  },
+  {
+    "target": "mass map",
+    "label": "CANDIDATE",
+    "blocking": [
+      "human"
+    ],
+    "certified_root": true,
+    "rounds": [
+      {
+        "round": 1,
+        "strategy": "pairing by the invariant class",
+        "secs": 0.0,
+        "checks": {
+          "unique-partner": {
+            "ok": true,
+            "evidence": "each label has one partner; sigma is an involution fixing only (1,1,1,1,1); entries psi^0, psi^1, psi^2 on 51, 30, 20 labels; determinant psi^70; rank 51 at psi = 0"
+          }
+        },
+        "failed": [],
+        "change": "",
+        "label": "CANDIDATE",
+        "blocking": [
+          "human"
+        ]
+      }
+    ],
+    "ledger": [
+      {
+        "t": 1,
+        "label": "CANDIDATE",
+        "factors": {
+          "proof": 1,
+          "formal": 1,
+          "code": 1,
+          "trace": 1,
+          "sim": 1,
+          "risk": 1,
+          "lit": 1,
+          "human": 0
+        },
+        "blocking": [
+          "human"
+        ],
+        "debt_mass": 1.0,
+        "core": 0,
+        "density": "0",
+        "accepted": true
+      }
+    ]
+  },
+  {
+    "target": "Fermat point",
+    "label": "CANDIDATE",
+    "blocking": [
+      "human"
+    ],
+    "certified_root": true,
+    "rounds": [
+      {
+        "round": 1,
+        "strategy": "Gamma-function norms against Distler-Greene",
+        "secs": 0.0,
+        "checks": {
+          "fermat-norms": {
+            "ok": true,
+            "evidence": "kappa^2 = gamma(1/5)/gamma(2/5)^3 = 1.19324 (Distler-Greene 1.19324); Weil-Petersson metric at psi = 0: 0.19226"
+          }
+        },
+        "failed": [],
+        "change": "",
+        "label": "CANDIDATE",
+        "blocking": [
+          "human"
+        ]
+      }
+    ],
+    "ledger": [
+      {
+        "t": 1,
+        "label": "CANDIDATE",
+        "factors": {
+          "proof": 1,
+          "formal": 1,
+          "code": 1,
+          "trace": 1,
+          "sim": 1,
+          "risk": 1,
+          "lit": 1,
+          "human": 0
+        },
+        "blocking": [
+          "human"
+        ],
+        "debt_mass": 1.0,
+        "core": 0,
+        "density": "0",
+        "accepted": true
+      }
+    ]
+  },
+  {
+    "target": "selection conjecture",
+    "label": "OPEN",
+    "blocking": [
+      "proof",
+      "human"
+    ],
+    "certified_root": false,
+    "rounds": [
+      {
+        "round": 1,
+        "strategy": "look for the viable vacuum on the quintic itself",
+        "secs": 0.0,
+        "checks": {
+          "three-families": {
+            "ok": false,
+            "evidence": "standard embedding: 100/|H| net families on X/H; 3 does not divide 100, so no quintic and no free quotient carries three families"
+          }
+        },
+        "failed": [
+          "three-families"
+        ],
+        "change": "separate the functional from the vacuum: the conjecture is equivalent to one viable vacuum fixed by mu",
+        "label": "OPEN",
+        "blocking": [
+          "proof",
+          "human"
+        ]
+      },
+      {
+        "round": 2,
+        "strategy": "functional and vacuum separated",
+        "secs": 0.0,
+        "checks": {
+          "gsc-equivalence": {
+            "ok": true,
+            "evidence": "Theorem D: a functional with (G1)-(G4) exists if and only if there is a viable vacuum fixed by mu (proved in Section 8 from geodesic wells and partitions of unity)"
+          },
+          "viable-vacuum-exists": {
+            "ok": false,
+            "evidence": "the literature consulted (BHOP05, BD06, AGLP11, AGLP12) gives heterotic models with three families and the Standard Model group, but no vacuum is shown to meet all nine conditions (C1)-(C9), stabilised moduli and supersymmetry breaking included"
+          }
+        },
+        "failed": [
+          "viable-vacuum-exists"
+        ],
+        "change": "the existence of a viable vacuum stays open",
+        "label": "OPEN",
+        "blocking": [
+          "proof",
+          "human"
+        ]
+      }
+    ],
+    "ledger": [
+      {
+        "t": 1,
+        "label": "OPEN",
+        "factors": {
+          "proof": 0,
+          "formal": 1,
+          "code": 1,
+          "trace": 1,
+          "sim": 1,
+          "risk": 1,
+          "lit": 1,
+          "human": 0
+        },
+        "blocking": [
+          "proof",
+          "human"
+        ],
+        "debt_mass": 2.0,
+        "core": 2,
+        "density": "1",
+        "accepted": true
+      },
+      {
+        "t": 2,
+        "label": "OPEN",
+        "factors": {
+          "proof": 0,
+          "formal": 1,
+          "code": 1,
+          "trace": 1,
+          "sim": 1,
+          "risk": 1,
+          "lit": 1,
+          "human": 0
+        },
+        "blocking": [
+          "proof",
+          "human"
+        ],
+        "debt_mass": 3.0,
+        "core": 4,
+        "density": "1",
+        "accepted": true
+      }
+    ]
+  }
+]
