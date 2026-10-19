@@ -94,6 +94,7 @@ version.
 
 | | DOI |
 | --- | --- |
+| release v1.1.0 (version DOI) | [10.5281/zenodo.23484427](https://doi.org/10.5281/zenodo.23484427) |
 | release v1.0.2 (version DOI) | [10.5281/zenodo.23483470](https://doi.org/10.5281/zenodo.23483470) |
 | release v1.0.1 (version DOI) | [10.5281/zenodo.23480492](https://doi.org/10.5281/zenodo.23480492) |
 | release v1.0.0 (version DOI) | [10.5281/zenodo.23480311](https://doi.org/10.5281/zenodo.23480311) |
