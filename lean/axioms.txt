@@ -1,0 +1,11 @@
+'Strings.labels_count' does not depend on any axioms
+'Strings.characters_distinct' depends on axioms: [propext]
+'Strings.missing_characters' depends on axioms: [propext]
+'Strings.orbit_sizes' does not depend on any axioms
+'Strings.ordered_by_sector' does not depend on any axioms
+'Strings.excluded_pairs' does not depend on any axioms
+'Strings.unordered_count' does not depend on any axioms
+'Strings.O_values' does not depend on any axioms
+'Strings.mass_map' does not depend on any axioms
+'Strings.moved_point_rule' depends on axioms: [propext]
+'Strings.hessian_socle' depends on axioms: [propext]

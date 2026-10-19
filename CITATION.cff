@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below."
+title: "Which String Vibrations Become Which Generations on the Dwork Quintic: code, checks and engine record"
+abstract: >-
+  Code, independent checks and the record of the Anaxia engine for the paper
+  "Which String Vibrations Become Which Generations on the Dwork Quintic".
+  The paper proves that the 101 generations of the heterotic string on the
+  quintic pencil carry 101 distinct characters of the symmetry group
+  (Z/5)^3, that every Yukawa coupling allowed by the symmetry is a power of
+  the modulus and every other coupling vanishes (1431 nonzero couplings),
+  that the invariant direction pairs each generation with exactly one
+  partner, so that the mass matrix has determinant psi^70 and rank 51 at the
+  Fermat point, where the masses are given by the Gamma function, and that
+  the Geometric Selection Conjecture is equivalent to the existence of one
+  viable vacuum fixed by mirror symmetry. The archive holds 64 independent
+  checks in C, C++, Python, Julia, Macaulay2 and shell, 11 Lean 4 theorems,
+  and the failure, change and retry record of the four targets on the
+  Anaxia engine.
+type: software
+license: MIT
+version: 1.0.0
+date-released: "2026-10-19"
+repository-code: "https://github.com/creelie/strings"
+keywords:
+  - heterotic string
+  - quintic threefold
+  - Yukawa couplings
+  - Calabi-Yau threefolds
+  - mirror symmetry
+authors:
+  - family-names: Bhattacharjee
+    given-names: Deep
+    orcid: "https://orcid.org/0000-0003-0466-750X"
+    email: itsdeep@live.com
+    affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta, Senate House, 87/1 College Street, Kolkata 700073, West Bengal, India"
+references:
+  - type: software
+    title: "BLLM: Beyond the LLM with Deep Human-Mind-AI (the Anaxia engine)"
+    version: 3.0.5
+    doi: 10.5281/zenodo.23469389
+    authors:
+      - family-names: Bhattacharjee
+        given-names: Deep
+preferred-citation:
+  type: article
+  title: "Which String Vibrations Become Which Generations on the Dwork Quintic"
+  year: 2026
+  authors:
+    - family-names: Bhattacharjee
+      given-names: Deep
+      orcid: "https://orcid.org/0000-0003-0466-750X"
+    - family-names: Bhattacharya
+      given-names: Ushashi
+      orcid: "https://orcid.org/0009-0002-2254-3914"
