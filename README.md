@@ -78,10 +78,11 @@ cd code && PYTHONPATH=/path/to/eBLLM/src python3 bllm/strings_loop.py
 
 See [`CITATION.cff`](CITATION.cff). Zenodo archives each GitHub release under
 its own version DOI and gathers all of them under one concept DOI; the paper
-cites the version DOI of release v1.0.0.
+cites the version DOI of release v1.0.1.
 
 | | DOI |
 | --- | --- |
+| release v1.0.1 (version DOI) | [10.5281/zenodo.23480492](https://doi.org/10.5281/zenodo.23480492) |
 | release v1.0.0 (version DOI) | [10.5281/zenodo.23480311](https://doi.org/10.5281/zenodo.23480311) |
 | all versions (concept DOI) | [10.5281/zenodo.23480310](https://doi.org/10.5281/zenodo.23480310) |
 

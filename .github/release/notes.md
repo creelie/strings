@@ -1,6 +1,6 @@
-# Which String Vibrations Become Which Generations on the Dwork Quintic, release 1.0.1
+# Which String Vibrations Become Which Generations on the Dwork Quintic, release 1.0.2
 
-The paper now cites its archive by the Zenodo version DOI of release 1.0.0, 10.5281/zenodo.23480311, and the citation file and the README list that DOI and the concept DOI 10.5281/zenodo.23480310 of all versions. The repository also holds `DworkGenerations_masterzipfinal2.zip`, which collects the paper, its LaTeX source, the arXiv package and the full archive in one file.
+The paper now cites its archive by the Zenodo version DOI of release 1.0.1, 10.5281/zenodo.23480492, together with the concept DOI 10.5281/zenodo.23480310 of all versions, and the citation file and the README list both. The master zip `DworkGenerations_masterzipfinal2.zip` is rebuilt from this release.
 
 The mathematics, the 64 checks and the 11 Lean 4 theorems are those of release 1.0.0.
 
