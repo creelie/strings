@@ -40,6 +40,17 @@ classes are the monomials x^b with b in {0,1,2,3}^5 and |b| = 5. The group
 5. **Selection.** The Geometric Selection Conjecture holds if and only if
    there is one viable vacuum fixed by mirror symmetry. No smooth quintic and
    no free quotient of one carries three families with the standard embedding.
+6. **Weighted pencils.** On the three other one-parameter families of Fermat
+   type, the sextic in P(1,1,1,1,2), the octic in P(1,1,1,1,4) and the dectic
+   in P(1,1,1,2,5), with 103, 149 and 145 families, the symmetry no longer
+   separates the families: they carry 96, 122 and 100 distinct characters of
+   groups of order 108, 128 and 100. Every coupling allowed by the symmetry is
+   psi^r times a product of weights, and nonzero for psi ≠ 0. The mass map of
+   the invariant direction has rank 99, 125 and 109 at every member with
+   psi ≠ 0, so 4, 24 and 36 families stay massless, and no member or free
+   quotient carries three families. The quintic is the only one of the four
+   pencils on which the symmetry labels every family and the invariant
+   deformation gives every family a mass.
 
 The existence of a viable vacuum is open.
 
@@ -48,18 +59,18 @@ The existence of a viable vacuum is open.
 | Path | Contents |
 |---|---|
 | `paper/` | `main.tex` and the figures as PNG |
-| `figures/` | `make_figures.py`, which draws the four figures |
+| `figures/` | `make_figures.py`, which draws the five figures |
 | `preprintDworkGenerations/` | the compiled paper |
 | `code/checks/` | independent checks in C, C++, Python, Julia and Macaulay2 |
 | `code/run_checks.sh` | runs every check and prints one summary line |
-| `code/bllm/` | the failure, change and retry record of the four targets on the Anaxia engine |
-| `lean/Strings.lean` | 11 theorems in Lean 4 (core library only) on the counts and the arithmetic of the Hessian |
+| `code/bllm/` | the failure, change and retry record of the five targets on the Anaxia engine |
+| `lean/Strings.lean` | 14 theorems in Lean 4 (core library only) on the counts, the arithmetic of the Hessian and the weighted pencils |
 
 ## Running the checks
 
 ```sh
 python3 -m pip install -r requirements.txt
-bash code/run_checks.sh          # 64 checks
+bash code/run_checks.sh          # 121 checks
 ```
 
 The script needs gcc, g++, Python 3 with numpy, sympy and mpmath, Julia,
@@ -67,8 +78,8 @@ Macaulay2 and Lean 4 (the version in `lean/lean-toolchain`); a missing tool is
 reported and its checks are skipped. The Lean file takes about two minutes.
 
 The engine record is rebuilt with the Anaxia engine
-([creelie/eBLLM](https://github.com/creelie/eBLLM), release 3.0.5,
-[doi:10.5281/zenodo.23469389](https://doi.org/10.5281/zenodo.23469389)):
+([creelie/eBLLM](https://github.com/creelie/eBLLM), release 3.1.0,
+[doi:10.5281/zenodo.23484160](https://doi.org/10.5281/zenodo.23484160)):
 
 ```sh
 cd code && PYTHONPATH=/path/to/eBLLM/src python3 bllm/strings_loop.py
@@ -78,10 +89,12 @@ cd code && PYTHONPATH=/path/to/eBLLM/src python3 bllm/strings_loop.py
 
 See [`CITATION.cff`](CITATION.cff). Zenodo archives each GitHub release under
 its own version DOI and gathers all of them under one concept DOI; the paper
-cites the version DOI of release v1.0.1.
+of release v1.1.0 cites the concept DOI, which resolves to the newest
+version.
 
 | | DOI |
 | --- | --- |
+| release v1.0.2 (version DOI) | [10.5281/zenodo.23483470](https://doi.org/10.5281/zenodo.23483470) |
 | release v1.0.1 (version DOI) | [10.5281/zenodo.23480492](https://doi.org/10.5281/zenodo.23480492) |
 | release v1.0.0 (version DOI) | [10.5281/zenodo.23480311](https://doi.org/10.5281/zenodo.23480311) |
 | all versions (concept DOI) | [10.5281/zenodo.23480310](https://doi.org/10.5281/zenodo.23480310) |

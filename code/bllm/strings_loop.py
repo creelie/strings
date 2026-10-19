@@ -1,4 +1,4 @@
-"""The four targets of the paper on the Anaxia engine: every failure, the change it forced, the retry.
+"""The five targets of the paper on the Anaxia engine: every failure, the change it forced, the retry.
 Run from code/:  PYTHONPATH=<eBLLM>/src python3 bllm/strings_loop.py
 Macaulay2 (M2 on the PATH, or the variable M2) is used for the socle functional."""
 import sys, os, re, shutil, subprocess
@@ -86,6 +86,53 @@ def viable_vacuum():
                 "models with three families and the Standard Model group, but no vacuum is shown to meet all "
                 "nine conditions (C1)-(C9), stabilised moduli and supersymmetry breaking included")
 
+def weighted_run():
+    out = subprocess.run([sys.executable, 'checks/weighted.py'], capture_output=True, text=True).stdout
+    return out
+
+def sextic_characters():
+    """Theorem A carried over unchanged: are the characters of the sextic labels distinct?"""
+    n, w, d = (6, 6, 6, 6, 3), (1, 1, 1, 1, 2), 6
+    labels = [b for b in product(*[range(m - 1) for m in n]) if sum(x * y for x, y in zip(b, w)) == d]
+    cls = lambda b: min(tuple((x + k) % m for x, m in zip(b, n)) for k in range(d))
+    chars = Counter(cls(b) for b in labels)
+    shared = sum(1 for v in chars.values() if v > 1)
+    return dict(ok=len(chars) == len(labels),
+                evidence=f"the {len(labels)} labels of the sextic carry {len(chars)} characters; "
+                         f"{shared} characters are shared, e.g. x1^4 x5 and x2^2 x3^2 x4^2 at shift 2")
+
+def weighted_classes():
+    out = weighted_run()
+    m = re.search(r'(\d+) checks passed, (\d+) failed', out)
+    ok = bool(m) and m.group(2) == '0' and int(m.group(1)) == 39
+    return dict(ok=ok, evidence="labels sharing a character found by their shift and matched with the hand lists "
+                "(7, 27, 42 classes; 96, 122, 100 characters); socle functional by sectors on all monomials of "
+                f"degree 3d ({m.group(0) if m else 'no summary'})")
+
+def weighted_mass():
+    out = weighted_run()
+    ranks = [int(x) for x in re.findall(r'mass map of h has rank (\d+) at psi = 3/7', out)]
+    ok = ranks == [99, 125, 109, 101][:len(ranks)] and len(ranks) == 3
+    return dict(ok=ok, evidence=f"mass map of the invariant label block by block: ranks {ranks} for the sextic, "
+                "octic and dectic, so 4, 24 and 36 generations stay massless at every smooth member with psi != 0")
+
+def weighted_jacobian_m2():
+    m2 = os.environ.get('M2', 'M2')
+    if not shutil.which(m2):
+        return dict(ok=False, evidence="Macaulay2 not found")
+    out = subprocess.run([m2, '--script', 'checks/weighted.m2'], capture_output=True, text=True).stdout
+    m = re.search(r'(\d+) checks passed, (\d+) failed', out)
+    ok = bool(m) and m.group(2) == '0' and int(m.group(1)) == 18
+    return dict(ok=ok, evidence="weighted Jacobian rings at psi = 1/3 and psi = -2: dimensions, labels a basis, "
+                f"socle functional by sectors ({m.group(0) if m else 'no summary'})")
+
+def weighted_families():
+    out = weighted_run()
+    ok = 'never an integer  [m0=34: 1163/2]' in out and 'm0=24: 593/12, m0=48: 2321/6' in out \
+        and '296/6 is not an integer' in out
+    return dict(ok=ok, evidence="three families on X/H needs |H| = 34 (sextic) or 48 (dectic), and then "
+                "chi(O(D)) = D^3/6 + c2.D/12 is 1163/2, 593/12 or 2321/6; for the octic 296/6 is not an integer")
+
 pc = ConjecturePackage(name="Yukawa couplings of the Dwork pencil", domain="quintic threefolds X_psi",
                        hypothesis="psi generic", conclusion="each coupling is psi^r on its sector and zero otherwise")
 T1 = Target("couplings", pc, "couplings", [
@@ -125,9 +172,24 @@ T4 = Target("selection conjecture", ps, "selection", [
           change="the existence of a viable vacuum stays open"),
 ], conditions=["a viable vacuum fixed by mu"], model_ok=False)
 
+pw = ConjecturePackage(name="Weighted Fermat pencils", domain="sextic, octic and dectic pencils",
+                       conclusion="labels, couplings and mass map of the invariant direction")
+T5 = Target("weighted pencils", pw, "weighted", [
+    Round("carry the proof of Theorem A over to the weighted pencils",
+          [Check("distinct-characters", "computation", sextic_characters)],
+          change="find the labels that share a character by their shift and evaluate the mass map "
+                 "block by block on the characters and their inverses"),
+    Round("labels by shift and the mass map by blocks",
+          [Check("wrap-classes", "computation", weighted_classes, "checks/weighted.py"),
+           Check("jacobian-rings", "computation", weighted_jacobian_m2, "checks/weighted.m2"),
+           Check("mass-blocks", "computation", weighted_mass, "checks/weighted.py, lean/Strings.lean"),
+           Check("three-families", "computation", weighted_families, "checks/weighted.py, lean/Strings.lean")],
+          bridges=[(["wrap-classes", "jacobian-rings", "mass-blocks", "three-families"], "weighted", 0.0)]),
+])
+
 if __name__ == '__main__':
     factors = dict(proof=1, formal=1, code=1, trace=1, sim=1, risk=1, lit=1, human=0)
-    res = [run_target(t, factors) for t in (T1, T2, T3, T4)]
+    res = [run_target(t, factors) for t in (T1, T2, T3, T4, T5)]
     os.makedirs('bllm/out', exist_ok=True)
     write_outputs(res, 'bllm/out/strings')
     for r in res: print(r['target'], r['label'], 'blocking', r['blocking'])

@@ -12,20 +12,27 @@ abstract: >-
   partner, so that the mass matrix has determinant psi^70 and rank 51 at the
   Fermat point, where the masses are given by the Gamma function, and that
   the Geometric Selection Conjecture is equivalent to the existence of one
-  viable vacuum fixed by mirror symmetry. The archive holds 64 independent
-  checks in C, C++, Python, Julia, Macaulay2 and shell, 11 Lean 4 theorems,
-  and the failure, change and retry record of the four targets on the
-  Anaxia engine.
+  viable vacuum fixed by mirror symmetry. On the sextic, octic and dectic
+  pencils of Fermat type in weighted projective space the symmetry no
+  longer separates the generations (96, 122 and 100 characters for 103, 149
+  and 145 generations), the mass map of the invariant direction has rank
+  99, 125 and 109, and no member or free quotient carries three families.
+  The archive holds 121 independent checks in C, C++, Python, Julia,
+  Macaulay2 and shell, 14 Lean 4 theorems, and the failure, change and
+  retry record of the five targets on the Anaxia engine.
 type: software
 license: MIT
-version: 1.0.2
-doi: 10.5281/zenodo.23480492
+version: 1.1.0
+doi: 10.5281/zenodo.23480310
 date-released: "2026-10-19"
 repository-code: "https://github.com/creelie/strings"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.23480310
     description: "Concept DOI of all versions"
+  - type: doi
+    value: 10.5281/zenodo.23483470
+    description: "Version DOI of release v1.0.2"
   - type: doi
     value: 10.5281/zenodo.23480492
     description: "Version DOI of release v1.0.1"
@@ -48,8 +55,8 @@ authors:
 references:
   - type: software
     title: "BLLM: Beyond the LLM with Deep Human-Mind-AI (the Anaxia engine)"
-    version: 3.0.5
-    doi: 10.5281/zenodo.23469389
+    version: 3.1.0
+    doi: 10.5281/zenodo.23484160
     authors:
       - family-names: Bhattacharjee
         given-names: Deep
