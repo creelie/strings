@@ -133,6 +133,25 @@ def weighted_families():
     return dict(ok=ok, evidence="three families on X/H needs |H| = 34 (sextic) or 48 (dectic), and then "
                 "chi(O(D)) = D^3/6 + c2.D/12 is 1163/2, 593/12 or 2321/6; for the octic 296/6 is not an integer")
 
+def weighted_all_run():
+    return subprocess.run([sys.executable, 'checks/weighted_all.py'], capture_output=True, text=True).stdout
+
+def fermat_types():
+    out = weighted_all_run()
+    return dict(ok='PASS Fermat types' in out and 'PASS Vafa' in out,
+                evidence="147 Fermat types; Vafa's Euler number agrees with PALP on all 7555 weight systems")
+
+def free_quotients():
+    out = weighted_all_run()
+    ok = 'PASS free automorphisms of prime order exist only' in out and 'PASS |chi(X)| = 6|H|' in out
+    return dict(ok=ok, evidence="free prime-order automorphisms only on the quintic (Z5), P(1,1,1,3,3)[9] (Z3) "
+                "and P(1,1,2,4,8)[16] (Z2); |chi| = 200, 216, 288 is never 6 times a power of that prime")
+
+def weighted_all_clean():
+    out = weighted_all_run()
+    return dict(ok=bool(re.search(r'^\d+ checks passed, 0 failed$', out, re.M)),
+                evidence=out.strip().splitlines()[-1] if out.strip() else "no output")
+
 pc = ConjecturePackage(name="Yukawa couplings of the Dwork pencil", domain="quintic threefolds X_psi",
                        hypothesis="psi generic", conclusion="each coupling is psi^r on its sector and zero otherwise")
 T1 = Target("couplings", pc, "couplings", [
@@ -187,9 +206,22 @@ T5 = Target("weighted pencils", pw, "weighted", [
           bridges=[(["wrap-classes", "jacobian-rings", "mass-blocks", "three-families"], "weighted", 0.0)]),
 ])
 
+pa = ConjecturePackage(name="Hypersurfaces in weighted projective four-space",
+                       domain="the 7555 quasi-smooth Calabi-Yau hypersurfaces and their free quotients",
+                       hypothesis="standard embedding, Wilson-line breaking",
+                       conclusion="no member carries three families with a Wilson line")
+T6 = Target("weighted hypersurfaces", pa, "weighted-all", [
+    Round("list the Fermat types and check Vafa's formula against PALP",
+          [Check("fermat-types", "computation", fermat_types, "checks/weighted_all.py")]),
+    Round("diagonal elements, fixed lines and divisibility of chi",
+          [Check("free-quotients", "computation", free_quotients, "checks/weighted_all.py, lean/Strings.lean"),
+           Check("all-checks", "computation", weighted_all_clean, "checks/weighted_all.py")],
+          bridges=[(["fermat-types", "free-quotients", "all-checks"], "weighted-all", 0.0)]),
+])
+
 if __name__ == '__main__':
     factors = dict(proof=1, formal=1, code=1, trace=1, sim=1, risk=1, lit=1, human=0)
-    res = [run_target(t, factors) for t in (T1, T2, T3, T4, T5)]
+    res = [run_target(t, factors) for t in (T1, T2, T3, T4, T5, T6)]
     os.makedirs('bllm/out', exist_ok=True)
     write_outputs(res, 'bllm/out/strings')
     for r in res: print(r['target'], r['label'], 'blocking', r['blocking'])

@@ -6,6 +6,8 @@
 #   Python     checks/verify.py    socle, Hessian, Seifert form, Fermat norms
 #   Python     checks/weighted.py  the weighted Fermat pencils: labels, characters,
 #                                  mass map, three families on free quotients
+#   Python     checks/weighted_all.py all 7555 weighted hypersurfaces: Vafa's formula,
+#                                  Fermat types, free diagonal automorphisms (Theorem F)
 #   Julia      checks/fermat.jl    the Fermat norms from a Lanczos Gamma, Table II
 #   Macaulay2  checks/socle.m2     the Jacobian ring and its socle
 #   Macaulay2  checks/weighted.m2  the Jacobian rings of the weighted pencils
@@ -38,6 +40,7 @@ else skipped+=("C++"); fi
 if have "$PYTHON"; then
   run "Python: socle, Hessian, Seifert form, Fermat norms" "$PYTHON" checks/verify.py || status=1
   run "Python: weighted Fermat pencils" "$PYTHON" checks/weighted.py || status=1
+  run "Python: all weighted hypersurfaces" "$PYTHON" checks/weighted_all.py || status=1
 else skipped+=("Python"); fi
 if have "$JULIA"; then
   run "Julia: Fermat norms" "$JULIA" --startup-file=no checks/fermat.jl || status=1

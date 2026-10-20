@@ -93,9 +93,12 @@ form by the Gamma function. On the three other one-parameter families of
 the same type, in weighted projective spaces, the symmetry no longer tells
 the families apart and some families stay massless at every member. We
 also prove that the Geometric Selection Conjecture is equivalent to the
-existence of one viable vacuum fixed by mirror symmetry, and that with the
+existence of one viable vacuum on which mirror symmetry does not act, and
+that with the
 standard embedding no quintic threefold, no member of the three other
-families, and no free quotient of any of them, carries three families.
+families, and no free quotient of any of them, carries three families, and
+that no Calabi--Yau hypersurface in a weighted projective four-space, nor
+any free quotient of one, carries both three families and a Wilson line.
 \par\medskip\upshape\noindent
 \textit{2020 Mathematics Subject Classification.} Primary 14J32, 81T30;
 Secondary 14D07, 32G20, 14J33, 20C15, 13H10, 81R05.
@@ -224,7 +227,12 @@ vacuum it selects: once a viable vacuum is given, a functional with all the
 required properties is written down in Section~\ref{sec:selection} from the
 metric alone, and conversely the minimum of any such functional is a viable
 vacuum. What remains of the conjecture is therefore the existence of one
-viable vacuum, which is where its content lies. The second part locates the
+viable vacuum, which is where its content lies. The fixed-point clause
+can be removed as well: when $\mu$ is the mirror map of $(2,2)$ vacua, a
+vacuum fixed by it is its own mirror, so $h^{1,1}=h^{2,1}$, the Euler
+characteristic vanishes and there are no net families
+(Corollary~\ref{cor:offmirror}). The conjecture is then equivalent to the
+existence of one viable vacuum outside the domain of $\mu$. The second part locates the
 Dwork pencil with respect to that question: its mass spectrum has the full
 rank and the hierarchy of scales that condition (C8) asks for, and the
 obstruction is the number of families, a hundred and one on the quintic and
@@ -277,13 +285,39 @@ three-family condition (C2). Theorem~\ref{thm:E} is proved in
 Section~\ref{sec:weighted}, and Figure~\ref{fig:weighted} compares the four
 pencils.
 
-The constructions behind the four theorems were organised on the Anaxia
+Part (iv) of Theorem~\ref{thm:E} holds for every hypersurface in a
+weighted projective four-space that can serve as a background. There are
+$7555$ weight systems with a quasi-smooth Calabi--Yau member, and a
+threefold with three families and no free quotient has no fundamental
+group, so no Wilson line can break $E_6$ on it.
+
+\begin{theorem}[Weighted hypersurfaces]\label{thm:F}
+Let $X\subset\PP(w)$ be a quasi-smooth Calabi--Yau hypersurface, $H$ a
+finite group of automorphisms of $X$ acting freely, and $Y$ a crepant
+resolution of $X/H$.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*,itemsep=1pt]
+\item If $H\ne1$, then $w$ is $(1,1,1,1,1)$, $(1,1,1,3,3)$ or
+$(1,1,2,4,8)$, of degree $5$, $9$ and $16$, and $H$ is a $5$-group, a
+$3$-group or a $2$-group respectively.
+\item The number of net families of the standard embedding on $Y$ is
+$|\chi(\hat X)|/(2|H|)$, and it is three only if $H=1$; then $Y=\hat X$
+is simply connected, and no Wilson line breaks $E_6$.
+\end{enumerate}
+\end{theorem}
+
+So conditions (C2) and (C3), three net families and a Wilson line, are
+never met together by the standard
+embedding on a hypersurface in a weighted projective four-space or on a
+free quotient of one. Theorem~\ref{thm:F} is proved in
+Section~\ref{sec:allweighted}.
+
+The constructions behind the theorems were organised on the Anaxia
 engine of the BLLM programme~\cite{Ana26,BB26}.\footnote{Anaxia runs a
 failure-driven loop: each strategy for a target is a list of checks, each
 check is a computation or a proof with a named source, a failed check is
 recorded together with the change of strategy it forces, and the label of a
 target (open, candidate, proved) is computed by the engine from the record,
-never assigned by hand. For this paper the engine ran five targets. For the
+never assigned by hand. For this paper the engine ran six targets. For the
 couplings, the first strategy was the count of couplings allowed by the
 symmetry, as in~\cite{DGJ08}; its check that the allowed couplings are
 nonzero failed, because a symmetry count only bounds the number of nonzero
@@ -303,10 +337,18 @@ Theorem~\ref{thm:A} over; its check that the characters are distinct
 failed at once on the sextic, where $103$ generations carry $96$
 characters, and the change it forced was to classify the generations that
 share a character by the wrapping of Lemma~\ref{lem:wwrap} and to compute
-the mass map block by block, which gives Theorem~\ref{thm:E}. The record
-of all five targets was made on release 3.1.0 of the engine. The engine
-proposes no mathematics of its own here: every statement is proved in the
-text, and the record of the loop is part of the archive of the
+the mass map block by block, which gives Theorem~\ref{thm:E}. For the
+hypersurfaces in weighted projective four-space the first round listed the
+$147$ weight systems of Fermat type and checked Vafa's formula for the
+Euler number against the Hodge numbers of all $7555$ weight systems, and
+the second classified the free diagonal automorphisms by their fixed
+weighted lines and the divisibility of the Euler number, which gives
+Theorem~\ref{thm:F}. The record of all six targets was made on release 3.1.0 of the engine.
+The barrier atlas added to the engine after that release (commit 17d0fa9
+of its repository) lists among the walls of the conjecture the
+observation that a vacuum fixed by the mirror map has no net families,
+which Corollary~\ref{cor:offmirror} proves. Beyond that the engine proposes
+no mathematics of its own here: every statement is proved in the text, and the record of the loop is part of the archive of the
 paper~\cite{Repo}.}
 
 
@@ -363,7 +405,18 @@ are the one-parameter models whose Picard--Fuchs equations, periods and
 mirror maps were found by Morrison~\cite{Mor92}, Klemm and
 Theisen~\cite{KT93} and Font~\cite{Fon93}, and the Hodge theory of
 quasi-smooth hypersurfaces in weighted projective space used there is due
-to Steenbrink~\cite{Ste77} and Dolgachev~\cite{Dol82}.
+to Steenbrink~\cite{Ste77} and Dolgachev~\cite{Dol82}. The $7555$ weight
+systems of quasi-smooth Calabi--Yau hypersurfaces in weighted projective
+four-space were found by Candelas, Lynker and Schimmrigk~\cite{CLS90} and
+completed by Klemm and Schimmrigk~\cite{KS94} and Kreuzer and
+Skarke~\cite{KS92}; their Euler numbers are given by Vafa's
+formula~\cite{Vaf89}. That finite automorphism groups of quasi-smooth
+weighted hypersurfaces come from the ambient space was proved by
+Przyjalkowski and Shramov~\cite{PS21}, and the automorphism groups were
+described by Esser~\cite{Ess24}; the invariance of Betti numbers under
+crepant resolutions used for Theorem~\ref{thm:F} is
+Batyrev's~\cite{Bat99}, and the fundamental group of toric hypersurfaces is
+computed by Batyrev and Kreuzer~\cite{BK06}.
 
 \section{The dictionary}\label{sec:dictionary}
 
@@ -1531,6 +1584,156 @@ only one on which the characters of the symmetry group label the
 generations and the invariant deformation gives every generation a mass.
 \end{remark}
 
+\subsection{Every hypersurface in a weighted projective space}
+\label{sec:allweighted}
+
+The four pencils are four of the $7555$ weight systems
+$w=(w_1,\dots,w_5)$ for which the hypersurfaces of degree $d=\sum_iw_i$ in
+$\PP(w)$ have a quasi-smooth member, found by Candelas, Lynker and
+Schimmrigk~\cite{CLS90} and completed by Klemm and
+Schimmrigk~\cite{KS94} and by Kreuzer and Skarke~\cite{KS92}. A
+quasi-smooth $X\subset\PP(w)$ of degree $d$ has trivial canonical class and
+only cyclic quotient singularities, at the points where it meets the
+singular locus of $\PP(w)$, and a crepant resolution $\hat X$ is a smooth
+Calabi--Yau threefold. We now settle the three-family question for all of
+them at once, which proves Theorem~\ref{thm:F}.\footnote{The question asked is the one of condition (C2)
+together with (C3): three net families with the standard embedding, on a
+threefold with a fundamental group that can carry the Wilson line breaking
+$E_6$ to the gauge group of the Standard Model. A threefold without
+fundamental group has no Wilson line, and the breaking needs a free
+quotient, as in~\cite{Wit85,BHOP05}.}
+
+
+Part (i) of Theorem~\ref{thm:F} says that free quotients are rare. Of the $147$ weight systems of Fermat type only three carry a free
+automorphism, and the sextic, octic and dectic pencils of
+Section~\ref{sec:weighted}, whose members admit no free automorphism at all,
+are covered by it independently of Proposition~\ref{prop:wthree}.
+
+The proof has three steps: every finite group of automorphisms is diagonal
+up to conjugacy element by element, a diagonal automorphism with a fixed
+point on $\PP(w)$ outside a coordinate vertex has a fixed point on $X$, and
+the remaining condition is a finite computation.
+
+\begin{lemma}\label{lem:linear}
+Every $P(w)$ and every $X$ of the $7555$ weight systems is well formed.
+Every automorphism of finite order of $X$ is the restriction of an
+automorphism of $\PP(w)$ induced by a graded automorphism of
+$\C[x_1,\dots,x_5]$, and this one is conjugate, by a graded automorphism,
+to a diagonal one $x_i\mapsto e^{2\pi\mathrm{i}a_i}x_i$.
+\end{lemma}
+
+\begin{proof}
+Well-formedness is the condition that any four weights are coprime and that
+the greatest common divisor of any three divides $d$; it is checked on the
+list~\cite{Repo}. For a well-formed quasi-smooth hypersurface of dimension
+three every reductive subgroup of $\operatorname{Aut}(X)$, in particular
+every finite one, is the restriction of a subgroup of
+$\operatorname{Aut}\PP(w)$, by Przyjalkowski and
+Shramov~\cite[Theorem 1.3]{PS21} (the hypersurface is not a linear cone,
+since $d$ exceeds every weight); see also Esser~\cite{Ess24}. The group $G$
+of graded automorphisms is $\prod_v\mathrm{GL}_{m_v}\ltimes U$, with $m_v$
+the number of weights equal to $v$ and $U$ unipotent, and
+$\operatorname{Aut}\PP(w)=G/\C^*$. A lift $g\in G$ of an element of finite
+order $m$ has $g^m$ in the image of $\C^*$, which is semisimple, so the
+unipotent part $u$ of $g$ has $u^m=1$ and $u=1$. Hence $g$ is semisimple
+and lies in a maximal torus of the connected group $G$, and the maximal
+tori are conjugate to the diagonal one.
+\end{proof}
+
+A diagonal automorphism $a=(a_1,\dots,a_5)\in(\Q/\Z)^5$ is defined modulo
+the vectors $tw$, $t\in\Q/\Z$, which act trivially on $\PP(w)$. For
+$t\in\Q/\Z$ put $S_a(t)=\{i: w_it\equiv a_i\}$.
+
+\begin{lemma}\label{lem:fixedlines}
+The fixed points of $a$ on $\PP(w)$ are the points whose coordinates
+outside $S_a(t)$ vanish, for some $t$. If $|S_a(t)|\ge2$ for some $t$,
+then $a$ has a fixed point on every hypersurface of positive degree. If
+$a$ acts freely on $X$, then every $w_i$ divides $d$, the equation of $X$
+contains every pure power $x_i^{n_i}$, $n_i=d/w_i$, and after a shift by
+some $tw$ every $a_i$ lies in $\frac1{n_i}\Z$; such vectors are taken
+modulo the shifts $\frac kd w=(\frac k{n_1},\dots,\frac k{n_5})$.
+\end{lemma}
+
+\begin{proof}
+A point $x$ is fixed when $e^{2\pi\mathrm{i}a_i}x_i=\lambda^{w_i}x_i$ for
+some $\lambda=e^{2\pi\mathrm{i}t}$, which is the first statement. If
+$|S_a(t)|\ge2$, take $i\ne j$ in it; the points with all coordinates but
+$x_i,x_j$ zero form a weighted projective line $\PP(w_i,w_j)$ of fixed
+points, and a weighted homogeneous polynomial $F$ of positive degree has a
+zero on it: if $F(x_i,0)$ vanishes the point $(1,0)$ is a zero, otherwise
+$F(1,x_j)$ is either nonconstant, with a root, or constant, and then
+$F=cx_i^{d/w_i}$ vanishes at $(0,1)$. The vertex $e_i$ always lies in a
+fixed set, with $t$ any solution of $w_it\equiv a_i$, so $X$ must miss
+$e_i$, which means that $x_i^{n_i}$ occurs in its equation and $w_i\mid d$.
+The equation is semi-invariant, so the five pure powers have one
+character, $n_ia_i\equiv c$ for all $i$; a shift by $tw$ with $td\equiv c$
+makes $n_ia_i\equiv0$, and the shifts that keep this are those with
+$td\equiv0$.
+\end{proof}
+
+So an automorphism of $X$ of finite order acts freely if and only if, in
+the normal form of Lemma~\ref{lem:linear}, $w$ is of Fermat type, the
+$a_i$ lie in $\frac1{n_i}\Z$, and the five sets
+$\{t:w_it\equiv a_i\}$ are pairwise disjoint. These conditions do not
+depend on the member, and they are also sufficient: on a member whose
+equation is semi-invariant and contains the five pure powers, the only
+candidate fixed points are the vertices, and the member misses them.
+
+\begin{proposition}\label{prop:freefermat}
+The weight systems of Fermat type are the $147$ solutions of
+$\sum_i1/n_i=1$. Those that carry a free automorphism of prime order $p$
+are exactly $(1,1,1,1,1)$ with $p=5$, $(1,1,1,3,3)$ with $p=3$ and
+$(1,1,2,4,8)$ with $p=2$, with Euler numbers $\chi(\hat X)=-200$, $-216$
+and $-288$.
+\end{proposition}
+
+\begin{proof}
+If $g$ of prime order $p$ acts freely on $X$, the argument in the proof of
+Theorem~\ref{thm:F} below shows that $\chi(\hat X)/p$ is the Euler number
+of a crepant resolution of $X/\langle g\rangle$, so $p$ divides
+$\chi(\hat X)$. Here $\chi(\hat X)$ is given by Vafa's
+formula~\cite{Vaf89}
+\[
+\chi(\hat X)=\frac1d\sum_{l,r=0}^{d-1}\ \prod_{i:\ d\mid lw_i,\ d\mid rw_i}
+\Big(1-\frac d{w_i}\Big),
+\]
+which agrees with the Hodge numbers of the toric resolution. For each of
+the $147$ systems and each prime $p\mid\chi(\hat X)$ the candidates are the
+finitely many vectors $a\in\prod_i\frac1{n_i}\Z/\Z$ of order $p$ modulo the
+shifts, and Lemma~\ref{lem:fixedlines} decides each of them. On the
+quintic the free ones are the $24$ vectors with $a_5=0$ and
+$a_1,\dots,a_4$ the nonzero residues modulo five in some order, the
+diagonal form of the cyclic permutation; on $\PP(1,1,1,3,3)$ there are four,
+among them $a=(\frac13,\frac23,0,\frac13,\frac23)$, and on
+$\PP(1,1,2,4,8)$ one, $a=(\frac12,0,\frac12,\frac12,\frac12)$. No other system has any~\cite{Repo}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:F}]
+If $H\ne1$, every element of prime order of $H$ acts freely, so by
+Lemma~\ref{lem:linear} and Proposition~\ref{prop:freefermat} the weights
+are one of the three systems and every prime dividing $|H|$ is the one
+listed, which is (i). The map $X\to X/H$ is étale, since $H$ acts freely,
+so the fibre product $\tilde Y=Y\times_{X/H}X$ is an étale cover of $Y$ of
+degree $|H|$ and a crepant resolution of $X$. Crepant resolutions of a
+threefold have equal Betti numbers by Batyrev~\cite{Bat99}, so
+$\chi(Y)=\chi(\tilde Y)/|H|=\chi(\hat X)/|H|$, and the number of net
+families is $|\chi(\hat X)|/(2|H|)$ by Theorem~\ref{thm:dictionary}. On the
+three systems of (i), $|\chi(\hat X)|/6$ is $100/3$, $36$ and $48$, which
+are not powers of $5$, $3$ and $2$, so three families need $H=1$. Finally
+$\hat X$ is simply connected: by Batyrev and
+Kreuzer~\cite[Theorem 1.6]{BK06} its fundamental group is the quotient of
+the lattice $N$ by the sublattice spanned by the primitive generators of
+the rays of the fan, and for $\PP(w)$ the generators $e_1,\dots,e_5$, with
+$\sum_iw_ie_i=0$, span $N$. A simply connected $Y$ has no flat
+$E_6$-bundle other than the trivial one, so no Wilson line.
+\end{proof}
+
+\begin{remark}\label{rem:sixweighted}
+Three net families do occur on simply connected members: SIXCOUNT of the
+$7555$ weight systems have $|\chi(\hat X)|=6$, SIXLIST~\cite{Repo}. They
+fail condition (C3), and by part (i) none of them has a free quotient.
+\end{remark}
+
 \section{The selection conjecture}\label{sec:selection}
 
 \subsection{The landscape and its metric}
@@ -1669,6 +1872,26 @@ superconformal field theory, the condition is empty for every vacuum and
 the conjecture is equivalent to the existence of one viable vacuum.
 \end{remark}
 
+\begin{corollary}\label{cor:offmirror}
+Let $\mu$ be the mirror map of $(2,2)$ vacua: $\cL^\mu$ consists of vacua
+$(X,T_X)$ with the standard embedding, and
+$\mu(X,T_X)=(X^\vee,T_{X^\vee})$ with $h^{1,1}(X^\vee)=h^{2,1}(X)$ and
+$h^{2,1}(X^\vee)=h^{1,1}(X)$. Then no vacuum fixed by $\mu$ satisfies
+\textup{(C2)}, and Conjecture~\ref{conj:gsc} holds if and only if there is
+a viable vacuum outside $\cL^\mu$.
+\end{corollary}
+
+\begin{proof}
+If $\mu(X,T_X)=(X,T_X)$, then $X^\vee$ is isomorphic to $X$, so
+$h^{1,1}(X)=h^{1,1}(X^\vee)=h^{2,1}(X)$ and $\chi(X)=2(h^{1,1}-h^{2,1})=0$.
+By Theorem~\ref{thm:dictionary} the net number of families is
+$\frac12|\chi(X)|=0$, so (C2) fails and the vacuum is not viable. A
+viable vacuum in $\cL^\mu$ is therefore never fixed by $\mu$, and the
+vacuum of Theorem~\ref{thm:gscequiv} must lie outside $\cL^\mu$;
+conversely a viable vacuum outside $\cL^\mu$ meets the condition of that
+theorem, which asks nothing of it.
+\end{proof}
+
 \subsection{The Dwork pencil}
 
 \begin{proposition}\label{prop:dworkselect}
@@ -1743,7 +1966,11 @@ set by measurement. The same two facts drive Section~\ref{sec:weighted},
 where the three other one-parameter families of Fermat type are treated.
 There the characters no longer separate the generations, the invariant
 deformation leaves $4$, $24$ and $36$ of them massless at every member, and
-no member or free quotient carries three families. Among the four pencils
+no member or free quotient carries three families. Theorem~\ref{thm:F}
+extends the last statement to every one of the $7555$ weight systems:
+free quotients occur only on the quintic, on the nonic in
+$\PP(1,1,1,3,3)$ and on the hexadecic in $\PP(1,1,2,4,8)$, and the
+hypersurfaces with three families are simply connected. Among the four pencils
 of Fermat type, the quintic is the only one on which the symmetry labels
 every generation and the invariant deformation gives every generation a
 mass.
@@ -1757,7 +1984,10 @@ which also holds the figures and the record of the engine runs. They are
 written in C (the label and coupling counts), C++ (the expansion of the
 Hessian by permutations), Python (all counts, the intersection numbers of
 Appendix~\ref{app:fermat}, the Gamma values, and the labels, characters,
-couplings and mass maps of the weighted pencils), Julia (the Gamma values
+couplings and mass maps of the weighted pencils, and Vafa's formula, the
+Fermat types and the free diagonal automorphisms on all $7555$ weight
+systems of Section~\ref{sec:allweighted}, against the list and the Hodge
+numbers produced by PALP~\cite{KS04}), Julia (the Gamma values
 and the intersection numbers), Macaulay2 (the Jacobian ring of the quintic
 at two rational values of $\psi$, with the socle functional on all $3876$
 monomials of degree fifteen and the Hessian, and the Jacobian rings of the
@@ -1767,7 +1997,7 @@ arithmetic of the Hessian and the numbers of the weighted pencils, checked
 by the kernel), with one shell script that runs all $121$ checks. No proof
 in the paper depends on them. The constructions were organised on the
 Anaxia engine, release 3.1.0~\cite{Ana26}, described in~\cite{BB26}; its
-record for the five targets of this paper is part of the archive. The programs and the engine
+record for the six targets of this paper is part of the archive. The programs and the engine
 runs were prepared by Deep Bhattacharjee with AI assistance from Claude
 (Anthropic).
 
@@ -2381,6 +2611,54 @@ I.~Dolgachev, Weighted projective varieties, in \emph{Group Actions and
 Vector Fields}, Lecture Notes in Math. \textbf{956}, Springer, Berlin,
 1982, 34--71,
 \href{https://doi.org/10.1007/BFb0101508}{doi:10.1007/BFb0101508}.
+
+\bibitem{CLS90}
+P.~Candelas, M.~Lynker and R.~Schimmrigk, Calabi--Yau manifolds in weighted
+$\mathbb P_4$, Nucl. Phys. B \textbf{341} (1990), 383--402,
+\href{https://doi.org/10.1016/0550-3213(90)90185-G}{doi:10.1016/0550-3213(90)90185-G}.
+
+\bibitem{KS92}
+M.~Kreuzer and H.~Skarke, No mirror symmetry in Landau--Ginzburg spectra!,
+Nucl. Phys. B \textbf{388} (1992), 113--130,
+\href{https://doi.org/10.1016/0550-3213(92)90547-O}{doi:10.1016/0550-3213(92)90547-O}.
+
+\bibitem{KS94}
+A.~Klemm and R.~Schimmrigk, Landau--Ginzburg string vacua, Nucl. Phys. B
+\textbf{411} (1994), 559--583,
+\href{https://doi.org/10.1016/0550-3213(94)90462-6}{doi:10.1016/0550-3213(94)90462-6}.
+
+\bibitem{Vaf89}
+C.~Vafa, String vacua and orbifoldized LG models, Mod. Phys. Lett. A
+\textbf{4} (1989), 1169--1185,
+\href{https://doi.org/10.1142/S0217732389001350}{doi:10.1142/S0217732389001350}.
+
+\bibitem{Bat99}
+V.~V.~Batyrev, Birational Calabi--Yau $n$-folds have equal Betti numbers,
+in \emph{New Trends in Algebraic Geometry}, London Math. Soc. Lecture Note
+Ser. \textbf{264}, Cambridge University Press, Cambridge, 1999, 1--11,
+\href{https://doi.org/10.1017/CBO9780511721540.002}{doi:10.1017/CBO9780511721540.002}.
+
+\bibitem{BK06}
+V.~V.~Batyrev and M.~Kreuzer, Integral cohomology and mirror symmetry for
+Calabi--Yau $3$-folds, in \emph{Mirror Symmetry V}, AMS/IP Stud. Adv. Math.
+\textbf{38}, American Mathematical Society, Providence, RI, 2006, 255--270,
+\href{https://doi.org/10.1090/amsip/038/11}{doi:10.1090/amsip/038/11}.
+
+\bibitem{KS04}
+M.~Kreuzer and H.~Skarke, PALP: a package for analysing lattice polytopes
+with applications to toric geometry, Comput. Phys. Commun. \textbf{157}
+(2004), 87--106,
+\href{https://doi.org/10.1016/S0010-4655(03)00491-0}{doi:10.1016/S0010-4655(03)00491-0}.
+
+\bibitem{PS21}
+V.~V.~Przyjalkowski and C.~A.~Shramov, On automorphisms of quasi-smooth
+weighted complete intersections, Sb. Math. \textbf{212} (2021), 374--388,
+\href{https://doi.org/10.1070/SM9451}{doi:10.1070/SM9451}.
+
+\bibitem{Ess24}
+L.~Esser, Automorphisms of weighted projective hypersurfaces, J. Pure Appl.
+Algebra \textbf{228} (2024), 107628,
+\href{https://doi.org/10.1016/j.jpaa.2024.107628}{doi:10.1016/j.jpaa.2024.107628}.
 
 \bibitem{Bha26a}
 D.~Bhattacharjee, U.~Bhattacharya and S.~Ghosh, One missing axiom for the

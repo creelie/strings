@@ -250,6 +250,24 @@ theorem no_three_families :
     rrFails 34 3 42 = true ∧ rrFails 48 1 34 = true := by
   decide +kernel
 
+/-- Vafa's formula for a Fermat type, all weights dividing d: the sum over (l, r) of the
+    products of 1 - d/w over the coordinates with d | l w and d | r w; the Euler number is
+    this sum divided by d -/
+def vafaSum (d : Nat) (w : List Nat) : Int :=
+  ((List.range d).map (fun l => ((List.range d).map (fun r =>
+    (w.filter (fun wi => (l * wi) % d == 0 && (r * wi) % d == 0)).foldl
+      (fun acc wi => acc * (1 - ((d / wi : Nat) : Int))) 1)).foldl (· + ·) 0)).foldl (· + ·) 0
+
+def isPowOf (p n : Nat) : Bool := (List.range 12).any (fun k => p ^ k == n)
+
+/-- the three weighted hypersurfaces with free automorphisms have Euler numbers -200, -216
+    and -288, and |chi|/6 is never a power of the prime that acts -/
+theorem free_quotient_euler :
+    vafaSum 5 [1, 1, 1, 1, 1] = -200 * 5 ∧ vafaSum 9 [1, 1, 1, 3, 3] = -216 * 9 ∧
+    vafaSum 16 [1, 1, 2, 4, 8] = -288 * 16 ∧
+    200 % 6 ≠ 0 ∧ isPowOf 3 (216 / 6) = false ∧ isPowOf 2 (288 / 6) = false := by
+  decide +kernel
+
 end Strings
 
 #print axioms Strings.labels_count
@@ -266,3 +284,4 @@ end Strings
 #print axioms Strings.weighted_labels
 #print axioms Strings.weighted_euler
 #print axioms Strings.no_three_families
+#print axioms Strings.free_quotient_euler
