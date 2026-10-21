@@ -32,5 +32,5 @@ jobs:
         run: |
           bash code/run_checks.sh | tee checks.log
           test "${PIPESTATUS[0]}" -eq 0
-          grep -q '^121 checks passed, 0 failed$' checks.log
+          grep -q '^215 checks passed, 0 failed$' checks.log
           if grep -rnE '\bsorry\b|native_decide|^axiom ' lean/Strings.lean; then exit 1; fi
