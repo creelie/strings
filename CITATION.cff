@@ -17,14 +17,18 @@ abstract: >-
   longer separates the generations (96, 122 and 100 characters for 103, 149
   and 145 generations), the mass map of the invariant direction has rank
   99, 125 and 109, and no member or free quotient carries three families.
-  The archive holds 121 independent checks in C, C++, Python, Julia,
+  For the thirteen hypergeometric one-parameter complete intersections
+  every prime dividing the order of a group acting freely divides
+  gcd(chi(L), chi(2L), chi(3L)); seven types admit no free action and no
+  free quotient carries three families.
+  The archive holds 215 independent checks in C, C++, Python, Julia,
   Macaulay2 and shell, 14 Lean 4 theorems, and the failure, change and
   retry record of the five targets on the Anaxia engine.
 type: software
 license: MIT
-version: 1.1.0
+version: 1.2.0
 doi: 10.5281/zenodo.23480310
-date-released: "2026-10-19"
+date-released: "2026-10-21"
 repository-code: "https://github.com/creelie/strings"
 identifiers:
   - type: doi
@@ -58,8 +62,8 @@ authors:
 references:
   - type: software
     title: "BLLM: Beyond the LLM with Deep Human-Mind-AI (the Anaxia engine)"
-    version: 3.1.0
-    doi: 10.5281/zenodo.23484160
+    version: 3.2.1
+    doi: 10.5281/zenodo.23524945
     authors:
       - family-names: Bhattacharjee
         given-names: Deep

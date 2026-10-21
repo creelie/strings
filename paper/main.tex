@@ -1,28 +1,19 @@
-\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,longbibliography,floatfix,amsmath,amssymb,10pt]{revtex4-2}
+\documentclass[11pt]{amsart}
 
+\usepackage[margin=1in]{geometry}
 \usepackage{mathptmx}
-\usepackage{amsthm}
+\usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{enumitem}
+\usepackage{xurl}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black,bookmarksnumbered=true]{hyperref}
-\newcommand{\orcidlink}[1]{\href{https://orcid.org/#1}{\textcolor{green!45!black}{\textsuperscript{\sffamily iD}}}}
 \usepackage{microtype}
 
-\makeatletter
-\AtBeginDocument{\def\NAT@bibsetup{\setlength{\labelwidth}{\z@}%
- \setlength{\labelsep}{0.5em}\setlength{\itemindent}{\z@}%
- \setlength{\listparindent}{\z@}\setlength{\topsep}{\z@}%
- \setlength{\parsep}{\z@}\NATx@bibsetup}}
-\let\write@bibliographystyle\relax
-\let\bibliography@latex\@gobble
-\makeatother
-
 \tolerance=2000
-\emergencystretch=2em
-\hbadness=2000
-\hfuzz=1pt
+\emergencystretch=3em
+\raggedbottom
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -60,27 +51,27 @@
 \newcommand{\WP}{\mathrm{WP}}
 
 \setlength{\emergencystretch}{3em}
+
 \begin{document}
 
 \title{Which String Vibrations Become Which Generations on the Dwork Quintic}
 
-\author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
+\author{Deep Bhattacharjee}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India}
+\address{Formerly, University of Calcutta, Senate House, 87/1 College Street, Kolkata 700073, West Bengal, India}
 \email{itsdeep@live.com}
-\thanks{Corresponding author; second e-mail address
-\nolinkurl{d.bhattacharjee@erl-forschung.de}}
-\affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory
-(EGSPL), Bhubaneswar, Odisha 751030, India}
-\affiliation{Formerly, University of Calcutta, Senate House, 87/1 College
-Street, Kolkata 700073, West Bengal, India}
+\urladdr{\href{https://orcid.org/0000-0003-0466-750X}{https://orcid.org/0000-0003-0466-750X}}
+\thanks{Corresponding author; second e-mail address \nolinkurl{d.bhattacharjee@erl-forschung.de}}
 
-\author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
+\author{Ushashi Bhattacharya}
+\address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 \email{rai.bhattacharya.in@gmail.com}
-\affiliation{Formerly, National Taiwan University, Taipei 106319, Taiwan}
+\urladdr{\href{https://orcid.org/0009-0002-2254-3914}{https://orcid.org/0009-0002-2254-3914}}
 
-\date{19 October 2026}
+\subjclass[2020]{Primary 14J32, 81T30; Secondary 14D07, 32G20, 14J33, 20C15, 13H10, 81R05}
+\keywords{heterotic string, quintic threefold, Yukawa couplings, generations, free quotients}
 
 \begin{abstract}
-\itshape
 We determine, for the heterotic string on the one-parameter family of
 quintic threefolds, which vibration modes become which families of charged
 particles. The hundred and one families are labelled by the characters of a
@@ -93,22 +84,17 @@ form by the Gamma function. On the three other one-parameter families of
 the same type, in weighted projective spaces, the symmetry no longer tells
 the families apart and some families stay massless at every member. We
 also prove that the Geometric Selection Conjecture is equivalent to the
-existence of one viable vacuum fixed by mirror symmetry, and that with the
-standard embedding no quintic threefold, no member of the three other
-families, and no free quotient of any of them, carries three families.
-\par\medskip\upshape\noindent
-\textit{2020 Mathematics Subject Classification.} Primary 14J32, 81T30;
-Secondary 14D07, 32G20, 14J33, 20C15, 13H10, 81R05.
+existence of one viable vacuum fixed by mirror symmetry, and that a free
+quotient of a Calabi--Yau complete intersection of any of the thirteen
+one-parameter hypergeometric types never carries three families with the
+standard embedding; on seven of these types, among them the sextic and
+dectic pencils, no finite group acts freely at all.
 \end{abstract}
-
-\keywords{heterotic string; quintic threefold; Yukawa couplings; generations}
 
 \maketitle
 
-\makeatletter
-\renewcommand\l@subsection[2]{}
-\renewcommand\l@subsubsection[2]{}
-\makeatother
+
+\setcounter{tocdepth}{1}
 \tableofcontents
 
 \section{Introduction}\label{sec:intro}
@@ -276,6 +262,17 @@ Theorem~\ref{thm:D} therefore fails on all three pencils, and so does the
 three-family condition (C2). Theorem~\ref{thm:E} is proved in
 Section~\ref{sec:weighted}, and Figure~\ref{fig:weighted} compares the four
 pencils.
+
+The count of families reaches beyond the four pencils. Of the fourteen
+one-parameter families of Calabi--Yau threefolds with hypergeometric
+Picard--Fuchs equations, thirteen are complete intersections in weighted
+projective space, and Proposition~\ref{prop:freequot} shows that a finite
+group acting freely on a smooth member has order divisible only by the
+primes that divide the greatest common divisor $g_X$ of the holomorphic
+Euler characteristics $\chi(X,\cO_X(k))$, $k\ge1$. This number is $1$ for
+seven of the thirteen types, the sextic and the dectic among them, which
+therefore have no free quotient at all, and no free quotient of any of the
+thirteen carries three families.
 
 The constructions behind the four theorems were organised on the Anaxia
 engine of the BLLM programme~\cite{Ana26,BB26}.\footnote{Anaxia runs a
@@ -495,7 +492,7 @@ numbers of a quintic threefold: by Theorem~\ref{thm:dictionary} the hundred and 
 of type $(2,1)$ are the generations and the single class of type $(1,1)$
 is the antigeneration.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/fig_hodge.png}
 \caption{Left: the intersection of the Fermat quintic with the plane
@@ -510,7 +507,7 @@ the Hodge numbers $h^{p,q}$ of a smooth quintic threefold, with height
 proportional to $1+\log_2h^{p,q}$; the six blue bars have height one, the
 two red bars are $h^{2,1}=h^{1,2}=101$, and the grey cells are zero.}
 \label{fig:hodge}
-\end{figure*}
+\end{figure}
 
 \section{Labels}\label{sec:labels}
 
@@ -572,7 +569,7 @@ $\{3,1,1,0,0\}$ (thirty).
 
 Figure~\ref{fig:labels} shows the hundred and one labels.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/fig_labels.png}
 \caption{The hundred and one generations of the Dwork quintic as points
@@ -586,7 +583,7 @@ labels, with the chord colour giving the power of $\psi$ of the pairing:
 black for $1$, blue for $\psi$, red for $\psi^2$; the fixed label is the
 invariant class $h$ at the centre.}
 \label{fig:labels}
-\end{figure*}
+\end{figure}
 
 \section{The socle functional}\label{sec:socle}
 
@@ -846,7 +843,7 @@ doubly degenerate pair and the fixed point a singlet; this is the stated
 spectrum.
 \end{proof}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/fig_masses.png}
 \caption{The mass spectrum of Theorem~\ref{thm:C} along the pencil. Left:
@@ -858,7 +855,7 @@ and a hundred and one elsewhere (the drop at $\psi=0$ is drawn with a small
 width); the conifold points $\psi^5=1$, where the Jacobian ring
 degenerates, are marked on the unit circle.}
 \label{fig:masses}
-\end{figure*}
+\end{figure}
 
 \begin{remark}[Degenerations]
 The determinant $\pm\psi^{70}$ shows that the mass map of the invariant
@@ -995,7 +992,7 @@ space is $\psi^d$ up to a constant; the discriminant $\psi^d\delta=1$ below
 is the conifold locus of those papers, and the Fermat point $\psi=0$ is the
 Gepner point.}
 
-\begin{table*}[t]
+\begin{table}[t]
 \caption{The four pencils of Fermat type. The rows give the degree and
 weights, the constant $\delta=\prod w_i^{w_i}$ of the discriminant
 $\psi^d\delta=1$, the intersection numbers of the hyperplane class $L$, the
@@ -1023,7 +1020,7 @@ rank for $\psi\ne0$ (massless) & $101$ ($0$) & $99$ ($4$) & $125$ ($24$) & $109$
 rank at $\psi=0$ (massless) & $51$ ($50$) & $44$ ($59$) & $85$ ($64$) & $72$ ($73$)\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \begin{lemma}\label{lem:wsmooth}
 If $\psi^d\delta\ne1$, then $X_\psi$ is quasi-smooth, it misses the singular
@@ -1255,7 +1252,7 @@ and so are the carried ones.
 
 Figure~\ref{fig:weighted} compares the four pencils.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/fig_weighted.png}
 \caption{Left: for the quintic in $\PP^4$ and the sextic, octic and dectic
@@ -1269,7 +1266,7 @@ the dectic pencil, $109$ off the Fermat point and $72$ at $\psi=0$ (the drop
 is drawn with a small width); the ten points of the circle
 $12\,500\,\psi^{10}=1$ are the singular members.}
 \label{fig:weighted}
-\end{figure*}
+\end{figure}
 
 \subsection{The socle functional}
 
@@ -1377,7 +1374,7 @@ sectors lie in $\{0,\dots,d-1\}$. The quotient of the two products is
 $\psi^{\Delta}\prod_iw_i^{\Delta w_i/d}=(\psi^d\delta)^{\Delta/d}$.
 \end{proof}
 
-\begin{table*}[t]
+\begin{table}[t]
 \caption{The blocks of the mass map of the invariant direction that
 involve labels sharing a character. Each row gives the labels of
 $B_\chi$ and of $B_{-\chi}$ in the notation of
@@ -1422,7 +1419,7 @@ $(50\psi^4,1;\ 1,250\psi^6)$ & $3$ & $0$\\
  & $x_i^6x_jx_kx_4,\ x_j^5x_k^5$ & self & $(50\psi^4,1;\ 1,250\psi^6)$ & $3$ & $0$\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \begin{proposition}\label{prop:wmass}
 Let $\psi\ne0$ and $\psi^d\delta\ne1$. The blocks of the mass map that
@@ -1632,7 +1629,7 @@ the sublevel sets of $c+\rho$ are compact. Thus $\cS$ satisfies (G1) to
 Figure~\ref{fig:landscape} draws the functional of the proof on one
 component.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/fig_landscape.png}
 \caption{The functional $\cS$ of the proof of Theorem~\ref{thm:gscequiv}
@@ -1644,7 +1641,7 @@ the two circles it is a convex combination of the two. The contour lines on
 the floor are the level sets of $\cS$; all of them are compact, and the only
 zero is $\cV^\star$.}
 \label{fig:landscape}
-\end{figure*}
+\end{figure}
 
 \begin{remark}[Constructed from the metric]\label{rem:frommetric}
 The phrase ``constructed from the metric'' in Conjecture~\ref{conj:gsc} is
@@ -1719,6 +1716,140 @@ whole of the open part of the Geometric Selection Conjecture. The weighted
 pencils fail on both counts: they too never carry three families, and
 their mass map leaves generations massless at every member.
 
+\subsection{Free quotients of the one-parameter families}\label{sec:freequot}
+
+The four pencils are four of the fourteen one-parameter families of
+Calabi--Yau threefolds with $h^{1,1}=1$ whose Picard--Fuchs equations are
+hypergeometric, listed by Doran and Morgan~\cite{DM06}. Thirteen of them are
+complete intersections $X=X_{d_1,\dots,d_c}\subset\PP(w)$ of degrees
+$d_1,\dots,d_c$ with $\sum_jd_j=\sum_iw_i$, whose general member is
+quasi-smooth and misses the singular points of $\PP(w)$; they are the rows
+of Table~\ref{tab:freequot}. The fourteenth, $X_{2,12}\subset
+\PP(1,1,1,1,4,6)$, is not of this kind: its quadric involves only the four
+coordinates of weight one, so it is not quasi-smooth at the point of
+$\PP(4,6)$ where the equation of degree twelve vanishes, and we leave it
+aside. For the thirteen, the count of families of
+Proposition~\ref{prop:dworkselect} becomes a statement about every free
+quotient, through one arithmetic invariant.
+
+\begin{lemma}[Primes of a free action]\label{lem:freeprime}
+Let $X$ be a compact K\"ahler threefold with $K_X\cong\cO_X$,
+$h^{1,0}=h^{2,0}=0$, $b_2=1$ and $\pi_1(X)=0$, let $L$ be an ample line
+bundle on $X$, and let $g$ be an automorphism of prime order $p$ without
+fixed points. Then $p$ divides $\chi(X,kL)$ for every $k\ge1$.
+\end{lemma}
+
+\begin{proof}
+Since $X$ is simply connected, $H^2(X,\Z)$ has no torsion, and since
+$h^{0,1}=h^{0,2}=0$ the first Chern class identifies $\operatorname{Pic}X$
+with $H^2(X,\Z)\cong\Z$. Let $A$ be its ample generator, so that $L=A^a$
+with $a\ge1$. The bundle $g^*A$ is again an ample generator, so
+$g^*A\cong A$. The obstruction to lifting the action of the cyclic group
+$G=\langle g\rangle$ to $A$ lies in $H^2(G,\C^*)$, which vanishes for a
+cyclic group, so $A$ and all its powers are $G$-linearised and $G$ acts on
+$H^q(X,A^m)$. For $m\ge1$ these groups vanish in positive degree by
+Kodaira's theorem, as $A^m=K_X\otimes A^m$ with $A^m$ ample. For $1\le
+j<p$ the automorphism $g^j$ has no fixed points, and the holomorphic
+Lefschetz formula of Atiyah and Bott~\cite{AB68} gives
+$\sum_q(-1)^q\operatorname{tr}\big(g^j\,|\,H^q(X,A^m)\big)=0$, that is,
+$\operatorname{tr}(g^j\,|\,H^0(X,A^m))=0$. A representation of $\Z/p$ whose
+character vanishes off the identity is a multiple of the regular
+representation, so $p$ divides $h^0(X,A^m)=\chi(X,A^m)$. Taking $m=ka$
+gives the statement.
+\end{proof}
+
+\begin{table}[t]
+\caption{The thirteen one-parameter complete intersections. The columns
+give the type, the weights, the intersection numbers, the Euler
+characteristic, the values $\chi(X,kL)=k^3L^3/6+k\,c_2\cdot L/12$ for
+$k=1,2,3$, their greatest common divisor $g_X$, and the order $|\chi|/6$
+that a free action giving three families would need.}
+\label{tab:freequot}
+\centering
+\begin{tabular}{llrrrlrl}
+\toprule
+type & $w$ & $L^3$ & $c_2\cdot L$ & $\chi$ & $\chi(kL)$ & $g_X$ & $|\chi|/6$\\
+\midrule
+$X_5$ & $1^5$ & $5$ & $50$ & $-200$ & $5,15,35$ & $5$ & --\\
+$X_6$ & $1^4,2$ & $3$ & $42$ & $-204$ & $4,11,24$ & $1$ & $34$\\
+$X_8$ & $1^4,4$ & $2$ & $44$ & $-296$ & $4,10,20$ & $2$ & --\\
+$X_{10}$ & $1^3,2,5$ & $1$ & $34$ & $-288$ & $3,7,13$ & $1$ & $48$\\
+$X_{3,3}$ & $1^6$ & $9$ & $54$ & $-144$ & $6,21,54$ & $3$ & $24$\\
+$X_{4,2}$ & $1^6$ & $8$ & $56$ & $-176$ & $6,20,50$ & $2$ & --\\
+$X_{3,2,2}$ & $1^7$ & $12$ & $60$ & $-144$ & $7,26,69$ & $1$ & $24$\\
+$X_{2,2,2,2}$ & $1^8$ & $16$ & $64$ & $-128$ & $8,32,88$ & $8$ & --\\
+$X_{4,4}$ & $1^4,2^2$ & $4$ & $40$ & $-144$ & $4,12,28$ & $4$ & $24$\\
+$X_{6,6}$ & $1^2,2^2,3^2$ & $1$ & $22$ & $-120$ & $2,5,10$ & $1$ & $20$\\
+$X_{4,3}$ & $1^5,2$ & $6$ & $48$ & $-156$ & $5,16,39$ & $1$ & $26$\\
+$X_{6,4}$ & $1^3,2^2,3$ & $2$ & $32$ & $-156$ & $3,8,17$ & $1$ & $26$\\
+$X_{6,2}$ & $1^5,3$ & $4$ & $52$ & $-256$ & $5,14,31$ & $1$ & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proposition}\label{prop:freequot}
+Let $X\subset\PP(w)$ be a quasi-smooth complete intersection of one of the
+thirteen types of Table~\ref{tab:freequot} that misses the singular points
+of $\PP(w)$, and let $H$ be a finite group acting freely on $X$. Then every
+prime divisor of $|H|$ divides $g_X$. Hence $H$ is trivial for $X_6$,
+$X_{10}$, $X_{3,2,2}$, $X_{6,6}$, $X_{4,3}$, $X_{6,4}$ and $X_{6,2}$; it is
+a $5$-group for $X_5$, a $3$-group for $X_{3,3}$, and a $2$-group for
+$X_8$, $X_{4,2}$, $X_{2,2,2,2}$ and $X_{4,4}$. With the standard embedding,
+no free quotient of $X$ carries three net families.
+\end{proposition}
+
+\begin{proof}
+As in Lemma~\ref{lem:wsmooth}, $X$ is a smooth threefold with $K_X\cong
+\cO_X(\sum_jd_j-\sum_iw_i)=\cO_X$, and the Lefschetz theorem for
+quasi-smooth complete intersections~\cite{Dol82} gives $h^{1,0}=h^{2,0}=0$
+and $b_2=1$. For $\pi_1$, let $C\subset\C^{N}$ be the affine cone over $X$,
+the zero set of the $c$ weighted homogeneous equations. Quasi-smoothness
+says that $C$ is a complete intersection of dimension four with an isolated
+singular point at the origin, so by Hamm's theorem~\cite{Ham71} its link
+is $2$-connected; the weighted action of $\R_{>0}$ meets every sphere about
+the origin once, so $C\setminus\{0\}$ is homotopy equivalent to the link and
+is simply connected. As $X$ misses the points with nontrivial isotropy,
+$\C^*$ acts freely on $C\setminus\{0\}$ with quotient $X$, and the exact
+sequence of homotopy groups of this fibration gives $\pi_1(X)=0$.
+
+Let $p$ be a prime divisor of $|H|$ and $g\in H$ an element of order $p$.
+It has no fixed points, so by Lemma~\ref{lem:freeprime} with
+$L=\cO_X(1)$, $p$ divides $\chi(X,kL)$ for all $k\ge1$. By Riemann--Roch,
+with $c_1(X)=0$ and $\chi(\cO_X)=0$,
+$\chi(X,kL)=k^3L^3/6+k\,c_2\cdot L/12$, a polynomial that takes integer
+values and vanishes at $k=0$; writing it as $\alpha_1\binom k1+\alpha_2
+\binom k2+\alpha_3\binom k3$ with integers $\alpha_i$, its values at all
+$k\ge1$ have the same greatest common divisor as $\alpha_1,\alpha_2,
+\alpha_3$, which is that of its values at $k=1,2,3$, the number $g_X$. The
+intersection numbers are computed as in Lemma~\ref{lem:wsmooth}, from
+$c(T_X)=\prod_i(1+w_iL)\prod_j(1+d_jL)^{-1}$ and
+$L^3=\prod_jd_j/\prod_iw_i$, and give the table.
+
+By Theorem~\ref{thm:dictionary} the quotient $X/H$ carries
+$|\chi(X)|/(2|H|)$ net families, so three families need
+$|H|=|\chi(X)|/6$. This is not an integer for $X_5$, $X_8$, $X_{4,2}$,
+$X_{2,2,2,2}$ and $X_{6,2}$. In the remaining eight rows it is $34$, $48$,
+$24$, $24$, $24$, $20$, $26$ or $26$, and each of these has a prime factor
+not dividing $g_X$: $17$, $2$, $2$, $2$, $3$, $2$ and $2$ (twice).
+\end{proof}
+
+The proposition contains Theorem~\ref{thm:E}(iv) and
+Proposition~\ref{prop:dworkselect}(ii) and strengthens them: the sextic and
+dectic pencils admit no free action at all, and on a quintic every free
+action is by a $5$-group, so that only the orders $5$ and $25$ divide
+$|\chi|=200$ and a free quotient of a quintic has $20$ or $4$ families;
+the quotient by $\Z/5\times\Z/5$ with four families is already
+in~\cite{CHSW85}. For the five complete intersections in ordinary
+projective space the free actions were classified by Braun~\cite{Bra11}
+with a computer search; the proposition uses only the holomorphic
+Lefschetz formula and Riemann--Roch.\footnote{On a quintic the group
+$\Z/5\times\Z/5$ of~\cite{CHSW85}, generated by the cyclic permutation of
+the coordinates and the diagonal phases $(1,\zeta,\zeta^2,\zeta^3,\zeta^4)$,
+acts on the five coordinates through a central extension of order $125$,
+the Heisenberg group, and $H^0(X,\cO_X(1))=\C^5$ is its irreducible
+representation of dimension five; each cyclic subgroup of order five acts on
+it by the regular representation, as Lemma~\ref{lem:freeprime} requires.}
+
 \section{Conclusion}\label{sec:conclusion}
 
 On the Dwork pencil the question of the title has a complete answer. The
@@ -1736,7 +1867,9 @@ together with the general dictionary of Section~\ref{sec:dictionary}.
 Two questions are not settled by the geometry of the pencil. The breaking
 of $E_6$ to the Standard Model needs a free quotient and Wilson lines, and
 on a quintic the number of families of a free quotient is $100/|H|$, never
-three (Proposition~\ref{prop:dworkselect}). The selection of the vacuum is
+three (Proposition~\ref{prop:dworkselect}), and the same holds for every
+free quotient of the thirteen one-parameter complete intersections
+(Proposition~\ref{prop:freequot}). The selection of the vacuum is
 reduced by Theorem~\ref{thm:gscequiv} to the existence of one viable vacuum,
 and that existence depends on conditions (C7) to (C9), whose thresholds are
 set by measurement. The same two facts drive Section~\ref{sec:weighted},
@@ -1751,22 +1884,24 @@ mass.
 \section*{Data and code availability}
 
 The programs that repeat the finite computations of this paper are in its
-archive at Zenodo, release 1.1.0, all versions
+archive, release 1.2.0,
+\url{https://github.com/creelie/strings/releases/tag/v1.2.0}, all versions
 \href{https://doi.org/10.5281/zenodo.23480310}{doi:10.5281/zenodo.23480310}~\cite{Repo},
 which also holds the figures and the record of the engine runs. They are
 written in C (the label and coupling counts), C++ (the expansion of the
 Hessian by permutations), Python (all counts, the intersection numbers of
 Appendix~\ref{app:fermat}, the Gamma values, and the labels, characters,
-couplings and mass maps of the weighted pencils), Julia (the Gamma values
+couplings and mass maps of the weighted pencils, and the intersection numbers,
+values $\chi(X,kL)$ and invariants $g_X$ of Table~\ref{tab:freequot}), Julia (the Gamma values
 and the intersection numbers), Macaulay2 (the Jacobian ring of the quintic
 at two rational values of $\psi$, with the socle functional on all $3876$
 monomials of degree fifteen and the Hessian, and the Jacobian rings of the
 three weighted pencils at two rational values of $\psi$, with the socle
 functional on every monomial of degree $3d$) and Lean~4 (the counts, the
 arithmetic of the Hessian and the numbers of the weighted pencils, checked
-by the kernel), with one shell script that runs all $121$ checks. No proof
+by the kernel), with one shell script that runs all $215$ checks. No proof
 in the paper depends on them. The constructions were organised on the
-Anaxia engine, release 3.1.0~\cite{Ana26}, described in~\cite{BB26}; its
+Anaxia engine~\cite{Ana26}, described in~\cite{BB26}; its
 record for the five targets of this paper is part of the archive. The programs and the engine
 runs were prepared by Deep Bhattacharjee with AI assistance from Claude
 (Anthropic).
@@ -2034,8 +2169,10 @@ Q(x,z)=\pm\frac1{5^4}\,\hat x(\mathbf k)\hat z(-\mathbf k)\Big(
 \]
 With four factors, $\prod(\zeta^{k_i}-1)=\zeta^{\sum k_i}\prod(\zeta^{-k_i}
 -1)$, so the bracket has absolute value
-$|1-\zeta^{k_1+k_2+k_3+k_4}|/\prod_{i\le4}|1-\zeta^{k_i}|^2$, and
-$|1-\zeta^{k_1+\dots+k_4}|=|1-\zeta^{k_5}|$. The cycle $e$ has
+\[
+\frac{|1-\zeta^{k_1+k_2+k_3+k_4}|}{\prod_{i\le4}|1-\zeta^{k_i}|^2}
+=\frac{|1-\zeta^{k_5}|}{\prod_{i\le4}|1-\zeta^{k_i}|^2}.
+\] The cycle $e$ has
 $\hat e(\mathbf k)=\prod_{i\le4}(1-\zeta^{k_i})$ up to a unimodular factor,
 so its component $u$ satisfies
 \begin{equation}\label{eq:intersection}
@@ -2081,7 +2218,7 @@ Table~\ref{tab:fermat} are their inverses.
 
 \section{Shared characters on the octic and the dectic}\label{app:wlabels}
 
-\begin{table*}[t]
+\begin{table}[t]
 \caption{The entries of the blocks of Table~\ref{tab:wblocks}, for the
 representative with $(i,j,k,l)=(1,2,3,4)$. Exponent vectors are written in
 full; the column $r$ is the sector of $h+\bb+\cc$ and $k$ is the vector of
@@ -2140,7 +2277,7 @@ dectic & 1 & $(2,1,1,3,0)$ & $(2,3,3,1,0)$ & $(6,6,6,6,0)$ & $2$ & $(0,0,0,1,1)$
  & 9 & $(0,5,5,0,0)$ & $(0,5,5,0,0)$ & $(2,12,12,2,0)$ & $6$ & $(0,1,1,1,3)$ & $250\psi^{6}$\\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 This appendix completes the proof of Proposition~\ref{prop:wchars}. By
 Lemma~\ref{lem:wwrap} it suffices to find, for each shift $s\le d/2$, the
@@ -2382,6 +2519,29 @@ Vector Fields}, Lecture Notes in Math. \textbf{956}, Springer, Berlin,
 1982, 34--71,
 \href{https://doi.org/10.1007/BFb0101508}{doi:10.1007/BFb0101508}.
 
+\bibitem{AB68}
+M.~F.~Atiyah and R.~Bott, A Lefschetz fixed point formula for elliptic
+complexes. II. Applications, Ann. of Math. (2) \textbf{88} (1968),
+451--491,
+\href{https://doi.org/10.2307/1970721}{doi:10.2307/1970721}.
+
+\bibitem{Ham71}
+H.~A.~Hamm, Lokale topologische Eigenschaften komplexer R\"aume, Math. Ann.
+\textbf{191} (1971), 235--252,
+\href{https://doi.org/10.1007/BF01578709}{doi:10.1007/BF01578709}.
+
+\bibitem{DM06}
+C.~F.~Doran and J.~W.~Morgan, Mirror symmetry and integral variations of
+Hodge structure underlying one-parameter families of Calabi--Yau
+threefolds, in \emph{Mirror Symmetry V}, AMS/IP Stud. Adv. Math.
+\textbf{38}, Amer. Math. Soc., Providence, RI, 2006, 517--537,
+\href{https://doi.org/10.1090/amsip/038/22}{doi:10.1090/amsip/038/22}.
+
+\bibitem{Bra11}
+V.~Braun, On free quotients of complete intersection Calabi--Yau
+manifolds, J. High Energy Phys. \textbf{2011} (2011), no.~4, 005,
+\href{https://doi.org/10.1007/JHEP04(2011)005}{doi:10.1007/JHEP04(2011)005}.
+
 \bibitem{Bha26a}
 D.~Bhattacharjee, U.~Bhattacharya and S.~Ghosh, One missing axiom for the
 complete closure of the heterotic landscape: resonance classifier of a
@@ -2403,8 +2563,8 @@ manifolds, Preprints.org (2025),
 
 \bibitem{Ana26}
 D.~Bhattacharjee, BLLM: Beyond the LLM with Deep Human-Mind-AI, the Anaxia
-engine, release 3.1.0, Zenodo (2026),
-\href{https://doi.org/10.5281/zenodo.23484160}{doi:10.5281/zenodo.23484160};
+engine, release 3.2.1, Zenodo (2026),
+\href{https://doi.org/10.5281/zenodo.23524945}{doi:10.5281/zenodo.23524945};
 all versions
 \href{https://doi.org/10.5281/zenodo.23286641}{doi:10.5281/zenodo.23286641}.
 
@@ -2414,7 +2574,8 @@ Human-Mind-AI, paper distributed with the engine~\cite{Ana26} (2026).
 
 \bibitem{Repo}
 D.~Bhattacharjee, Which string vibrations become which generations on the
-Dwork quintic: code, checks and engine record, release 1.1.0, Zenodo
+Dwork quintic: code, checks and engine record, release 1.2.0,
+\url{https://github.com/creelie/strings/releases/tag/v1.2.0}, Zenodo
 (2026), all versions \repolink.
 
 \end{thebibliography}
